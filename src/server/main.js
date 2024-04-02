@@ -1,8 +1,13 @@
+import express from "express";
+import ViteExpress from "vite-express";
 import OpenAI from "openai";
 import fs from "fs";
-import express from  "express";
 import bodyParser from "body-parser";
 import cors from "cors";
+
+const app = express();
+
+
 
 // get api key
 const data = fs.readFileSync('../openai-key.json', 'utf8');
@@ -15,19 +20,16 @@ const openai = new OpenAI({
     organization: config.organization,
 });
 
-
-const app = express();
 const port = 3000;
 
 app.use(bodyParser.json());
 app.use(cors());
 
 app.post("/review", async (req, res) => {
-    const file = fs.readFileSync('sample-response.json', 'utf8');
+    const file = fs.readFileSync('../sample-response.json', 'utf8');
     const response = JSON.parse(file);
     res.json(response);
 });
-
 
 app.post("/review/this/is/the/paid/version/bro", async (req, res) => {
     const { message } = req.body;
@@ -62,7 +64,6 @@ app.post("/review/this/is/the/paid/version/bro", async (req, res) => {
 });
 
 
-
-app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
-});
+ViteExpress.listen(app, 3000, () =>
+  console.log("Server is listening on port 3000..."),
+);
