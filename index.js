@@ -22,6 +22,13 @@ const port = 3000;
 app.use(bodyParser.json());
 app.use(cors());
 
+app.post("/review", async (req, res) => {
+    const file = fs.readFileSync('sample-response.json', 'utf8');
+    const response = JSON.parse(file);
+    res.json(response);
+});
+
+
 app.post("/review/this/is/the/paid/version/bro", async (req, res) => {
     const { message } = req.body;
     try {
@@ -54,40 +61,6 @@ app.post("/review/this/is/the/paid/version/bro", async (req, res) => {
     }
 });
 
-// app.post("/review/2", async (req, res) => {
-//     const { message } = req.body;
-//     try {
-//         const response = await openai.chat.completions.create({
-//             model: "gpt-3.5-turbo",
-//             messages: [
-//               {
-//                 "role": "user",
-//                 "content": "cuanto es 2 + 2? la respuesta debe ser en formato json. ejemplo: {\"result\": 4}"
-//               }
-//             ],
-//             temperature: 1,
-//             max_tokens: 1500,
-//             top_p: 1,
-//             frequency_penalty: 0,
-//             presence_penalty: 0,
-//           });
-
-
-//           if (response && response && response.choices && response.choices.length > 0 && response.choices[0].message) {
-//             const lastMessageContent = response.choices[0].message.content;
-//             const parsedContent = JSON.parse(lastMessageContent);
-//             res.json(parsedContent);
-//         } else {
-//             // Handling cases where the expected path doesn't exist in the response
-//             console.error("Unexpected response structure:", response);
-//             res.status(500).json({ error: "Unexpected response structure" });
-//         }
-        
-//     } catch (error) {
-//         console.error("Error calling the OpenAI API:", error);
-//         res.status(500).json({ error: "Internal Server Error" });
-//     }
-// });
 
 
 app.listen(port, () => {
