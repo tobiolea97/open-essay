@@ -2,7 +2,7 @@ import React from 'react';
 
 export const OriginalWritingComponent = () => {
     return (
-        <>
+        <div className='review-container'>
             <section className="original-copy">
                 <p>
                     As technology grows bigger, we become stiller. It seems that most of our daily tasks <wrong>requires</wrong> <right>require</right> to be sitting in front of a computer,
@@ -57,7 +57,7 @@ export const OriginalWritingComponent = () => {
                 to support the argument.
                 </p>
             </section>
-        </>
+        </div>
     )
 }
 

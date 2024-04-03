@@ -1,14 +1,43 @@
+.main-review .feedback ul li {
+  margin: 0;
+  font-size: 12px;
+}
+
+.main-review .feedback ul {
+  margin: 5px 0 0 0;
+}
+
+.main-review .feedback p {
+  margin: 0;
+  font-size: 12px;
+}
+
+.main-review .feedback h3 {
+  margin: 0 0 10px 0;
+}
+
+.main-review .feedback {
+  padding: 20px;
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.main-review .paragraph {
+  background-color: #bcc9d6;
+  padding: 20px;
+}
+
 .app .main-review  {
   max-width: 80%;
   margin: 50px auto;
+  padding: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-areas: "original-copy paragraph-feedback";
+  grid-template-rows: repeat(auto-fill, minmax(auto, 1fr));
   grid-column-gap: 20px;
 }
 
 .paragraph-feedback {
-  grid-area: paragraph-feedback;
   padding: 25px 25px 25px 25px;
   border-radius: 10px;
   font-size: 16px;
@@ -23,28 +52,27 @@
   padding-bottom: 10px;
 }
 
-.original-copy {
+.main-review {
   grid-area: original-copy;
-  background-color: #b3b2b0;
   padding: 25px 25px 25px 25px;
   border-radius: 10px;
   font-size: 16px;
   border: solid 1px #ccc;
 }
 
-.original-copy p {
+.main-review p:nth-child(odd) {
   color: black;
   font-style: italic;
   margin-bottom: 20px;
 }
 
-.original-copy wrong {
+.main-review wrong {
   color: red;
   text-decoration: line-through;
   font-weight: 800;
 }
 
-.original-copy right {
+.main-review right {
   color: rgb(24, 153, 24);
   font-weight: 800;
 }
