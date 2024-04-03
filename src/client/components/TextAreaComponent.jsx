@@ -8,13 +8,13 @@ export const TextAreaComponent = () => {
     const [inputValue, setInputValue] = useState("");
     const [wordCount, setWordCount] = useState(0);
     const [paragraphCount, setParagraphCount] = useState(0);
-    const [error, setError] = useState(null);
+    const [error, setError] = useState("");
     
     useEffect(() => {
         setError("");
     }, []);
 
-    const onSubmit = async (event) => {
+    const handleClick = async (event) => {
         event.preventDefault();
         if(inputValue === "" || inputValue === undefined || wordCount < 4 || paragraphCount < 1)
         {
@@ -37,16 +37,20 @@ export const TextAreaComponent = () => {
     }, [inputValue]);
 
     return (
-        <form className="text-area" onSubmit={onSubmit}>
-            <textarea
-                className="text-area-input"
-                placeholder="Write your essay.."
-                onChange={handleChange}
-                value={inputValue}></textarea>
-            <button className="button" type="submit">Submit</button>
-            <span>{error}</span>
-            <em>{wordCount} words / {paragraphCount} paragraphs</em>
-        </form>
+        <>
+            <div className="text-area">
+                <textarea
+                    className="text-area-input"
+                    placeholder="Write your essay.."
+                    onChange={handleChange}
+                    value={inputValue}></textarea>
+            </div>
+            <div className="control-panel">
+                <span>{error}</span>
+                <em>{wordCount} words / {paragraphCount} paragraphs</em>
+                <button className="button" onClick={handleClick}>Submit</button>
+            </div>
+        </>
     )
 }
 
