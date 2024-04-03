@@ -106,10 +106,13 @@
 }
 
 .text-area span {
+  color:white;
+  background-color: rgb(223, 87, 72);
   grid-area: error;
-  color:red;
   align-self: center;
   font-size: 16px;
+  border-radius: 5px;
+  text-align: center;
 }
 
 main {
