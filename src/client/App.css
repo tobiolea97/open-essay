@@ -1,5 +1,6 @@
 .app {
   width: 100%;
+  min-width: 800px;
 }
 
 .app header {
@@ -24,23 +25,13 @@
 }
 
 .app main  {
-  max-width: 800px;
+  max-width: 90%;
   margin: 0 auto;
 }
 
-.app main .text-area {
-  padding: 0 20px 0 20px;
-}
-
-.app main .text-area form {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  align-items: center;
-  justify-content: end;
-}
-
 .instructions {
+  flex: 0 1 1;
+  max-width: 25%;
   background-color: #4c6c8d;
   padding: 10px 25px 15px 25px;
   margin-top: 20px;
@@ -69,20 +60,35 @@
   color: white;
 }
 
-.text-area-input {
-  flex: 1 0 90%;
-  height: 400px;
+.text-area {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 0 25px 0 25px;
+  margin-top: 20px;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+.text-area textarea {
+  height: 80%;
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 15px;
-  margin: 0 0 20px 0;
+  margin-bottom: 10px;
 }
 
-.button {
+.text-area button {
+  width: 80px;
   background-color: black;
   color: white;
-  padding: 10px 20px;
+  padding: 5px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  align-self: flex-end;
+}
+
+main {
+  display: flex;
 }
