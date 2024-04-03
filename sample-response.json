@@ -1,87 +1,67 @@
 {
-    "misspellings": [
-        {
-            "wrong": "becomes",
-            "correct": "become",
-            "textPiece": "As population increases and cities becomes bigger, so do the traffic in the streets."
-        },
-        {
-            "wrong": "cityzens",
-            "correct": "citizens",
-            "textPiece": "That is why cityzens of big metropolies are trying to replace their cars with alternatives means of transport."
-        },
-        {
-            "wrong": "on",
-            "correct": "in",
-            "textPiece": "bycicle has become on recent years a popular and cheap alternative for traveling to work."
-        },
-        {
-            "wrong": "over",
-            "correct": "every",
-            "textPiece": "This has as a consequence that every week we spend around one extra shift just commuting;"
-        },
-        {
-            "wrong": "travell",
-            "correct": "travel",
-            "textPiece": "people from big towns who travell to work by car spent an average of 9hs per week stuck in traffic."
-        },
-        {
-            "wrong": "bycicles",
-            "correct": "bicycles",
-            "textPiece": "Means of transport such as motorcycles and bycicles expose riders to risk of suffering serious accidents,"
-        },
-        {
-            "wrong": "seems",
-            "correct": "seem",
-            "textPiece": "Moreover, car drivers seems not to really care about the welfare of cyclist riders, which makes it even a more dangerous alternative."
-        },
-        {
-            "wrong": "us",
-            "correct": "as",
-            "textPiece": "Cites such us New York, Amsterdan and Paris have duplicated the length of the bike roads"
-        },
-        {
-            "wrong": "Amsterdan",
-            "correct": "Amsterdam",
-            "textPiece": "Cites such us New York, Amsterdan and Paris have duplicated the length of the bike roads"
-        },
-        {
-            "wrong": "year",
-            "correct": "years",
-            "textPiece": "Cities such us New York, Amsterdan and Paris have duplicated the length of the bike roads in the last few year."
-        },
-        {
-            "wrong": "provide",
-            "correct": "providing",
-            "textPiece": "Other cities like Buenos Aires and Berlin provide people with free bike-rides"
-        },
-        {
-            "wrong": "fee",
-            "correct": "dose",
-            "textPiece": "Moreover, it will provide you with a daily fee of excercise"
-        }
-    ],
-    "paragraphs": [
-        {
-            "paragraph": 1,
-            "feedback": "The introduction is clear and sets the tone for the essay. However, it would be helpful to state the purpose of the essay more explicitly. Consider rephrasing some sentences for better clarity."
-        },
-        {
-            "paragraph": 2,
-            "feedback": "This paragraph provides relevant information about the transportation issues in big cities. The argument is developed logically, but there are some grammar mistakes that need to be corrected."
-        },
-        {
-            "paragraph": 3,
-            "feedback": "The paragraph discusses safety aspects related to alternative means of transport. However, some ideas could be expressed more clearly to strengthen the argument."
-        },
-        {
-            "paragraph": 4,
-            "feedback": "The paragraph presents a counterargument regarding infrastructure for cyclists. It is insightful, but there are misspelled words that need to be addressed for better coherence."
-        },
-        {
-            "paragraph": 5,
-            "feedback": "The conclusion summarizes the main points effectively and presents a clear opinion. The paragraph could be enhanced by providing more specific examples or statistics to support the argument."
-        }
-    ],
-    "rewritten_version": "As population increases and cities become bigger, so does the traffic in the streets. That is why citizens of big metropolises are trying to replace their cars with alternative means of transport. In recent years, bicycles have become a popular and cheap alternative for traveling to work. This essay will develop different aspects of the subject and provide an opinion on whether it is a good alternative for commuting.\n\nAs mentioned before, the number of cars on the streets (and therefore the traffic) seems to increase all the time. This results in people spending an extra shift every week just commuting; recent studies have shown that people from big towns who travel to work by car spend an average of 9 hours per week stuck in traffic.\n\nApart from time consumption, another aspect to consider when thinking about means of transport in cities has to do with safety. Means of transport such as motorcycles and bicycles expose riders to the risk of suffering serious accidents, even if they take safety measures like wearing helmets. Moreover, car drivers seem not to really care about the welfare of cyclist riders, making it an even more dangerous alternative.\n\nOn the contrary, authorities of these big cities are investing a great amount of money in infrastructure for cyclists. Cities such as New York, Amsterdam, and Paris have doubled the length of the bike lanes in the last few years. Other cities like Buenos Aires and Berlin are providing people with free bike rides: they can pick up a bike from different spots in the city, use it, and drop it off at a different spot.\n\nIn conclusion, I think that cycling to work is a very good alternative as long as the distance is reasonable and safety measures are taken. This will not only help reduce traffic jams but also decrease the amount of greenhouse gases. Furthermore, it will provide you with a daily dose of exercise, which is an important aspect."
+  "misspellings": [
+    {
+      "wrong": "cityzens",
+      "correct": "citizens",
+      "textPiece": "That is why cityzens of big metropolies are trying to replace their cars with alternatives means of transport."
+    },
+    {
+      "wrong": "bycicle",
+      "correct": "bicycle",
+      "textPiece": "bycicle has become on recent years a popular and cheap alternative for traveling to work"
+    },
+    {
+      "wrong": "towns",
+      "correct": "cities",
+      "textPiece": "recent studies have shown that people from big towns who travell to work by car spent an average of 9hs per week stuck in traffic"
+    },
+    {
+      "wrong": "cyclers",
+      "correct": "cyclists",
+      "textPiece": "authorities of these big cities are investing great amount of money on infrastructure for cyclers"
+    },
+    {
+      "wrong": "us",
+      "correct": "such as",
+      "textPiece": "Cities such us New York, Amsterdan and Paris have duplicated the length of the bike roads"
+    }
+  ],
+  "paragraphs": [
+    {
+      "paragraph": 1,
+      "feedback": "The introduction provides a clear overview of the topic. However, there are some misspelled words and errors in prepositions that need to be corrected to enhance clarity.",
+      "suggested_changes_1": "Consider revising the misspelled words and prepositions to improve the coherence of the text.",
+      "suggested_changes_2": "Provide a smoother transition between the introduction and the body of the essay to enhance the flow of ideas.",
+      "suggested_changes_3": "Try to include a stronger thesis statement at the end of the introduction to clearly outline the writer's position on the topic."
+    },
+    {
+      "paragraph": 2,
+      "feedback": "The second paragraph addresses the issue of traffic congestion effectively. However, there are some inaccuracies and unclear expressions that could be revised for better cohesion and clarity.",
+      "suggested_changes_1": "Consider rephrasing the sentence 'This has as a consequence that every week we spend around one extra shift just commuting' for better clarity.",
+      "suggested_changes_2": "Specify the source of the recent studies mentioned to provide credibility to the argument.",
+      "suggested_changes_3": "Provide more specific examples or statistics to support the claim about the time spent in traffic congestion."
+    },
+    {
+      "paragraph": 3,
+      "feedback": "The third paragraph discusses the safety concerns related to alternative means of transport. While the main points are relevant, there are language and expression issues that could be improved for coherence and accuracy.",
+      "suggested_changes_1": "Use consistent terminology such as 'bicycles' instead of 'bycicles' for accuracy.",
+      "suggested_changes_2": "Clearly articulate the argument regarding the safety measures taken by cyclists and the behavior of car drivers for better coherence.",
+      "suggested_changes_3": "Provide more nuanced examples or evidence to support the claim about the dangers of cycling in cities."
+    },
+    {
+      "paragraph": 4,
+      "feedback": "The fourth paragraph highlights the efforts of cities in promoting cycling as a mode of transportation. However, there are misspelled words and inconsistencies in prepositions that impact the clarity of the message.",
+      "suggested_changes_1": "Revise the misspelled words and prepositions for better grammar and coherence.",
+      "suggested_changes_2": "Provide specific details or data to strengthen the argument about the investment in cycling infrastructure by cities.",
+      "suggested_changes_3": "Offer a smoother transition between examples of cities to enhance the flow of the paragraph."
+    },
+    {
+      "paragraph": 5,
+      "feedback": "The conclusion presents a clear stance on the topic of cycling as an alternative for commuting. However, there are language errors and areas where the argument could be strengthened for a more persuasive conclusion.",
+      "suggested_changes_1": "Revise the misspelled words and prepositions in the conclusion for better clarity.",
+      "suggested_changes_2": "Strengthen the argument by providing additional benefits or counterarguments to support the claim about cycling as a good alternative for commuting.",
+      "suggested_changes_3": "Consider summarizing the main points discussed in the body paragraphs to reinforce the thesis statement."
+    }
+  ],
+  "rewritten_version": "As the population increases and cities grow larger, so does the traffic on the streets. That is why citizens of big metropolises are trying to replace their cars with alternative means of transport. In recent years, the bicycle has become a popular and affordable option for commuting to work. This essay will explore different aspects of the subject and offer an opinion on whether cycling is a suitable alternative for commuting.\n\nThe escalation of cars on the streets (and consequently, traffic) appears to be perpetual. As a result, we find ourselves spending an additional shift each week just commuting. Recent studies have revealed that individuals from major cities who travel to work by car spend an average of 9 hours per week trapped in traffic.\n\nApart from the time aspect, safety is another crucial consideration when deliberating on transportation options within cities. Modes of transport such as motorcycles and bicycles expose riders to the risk of serious accidents, even when safety precautions like wearing helmets are taken. Moreover, car drivers seemingly disregard the well-being of cyclists, further exacerbating the peril.\n\nOn the flip side, city authorities are investing substantial amounts of money in cycling infrastructure. Metropolises like New York, Amsterdam, and Paris have doubled the length of bike lanes in recent years. Other cities such as Buenos Aires and Berlin offer free bike-sharing services, allowing individuals to pick up bikes from various locations, use them, and drop them off elsewhere.\n\nIn conclusion, I believe that cycling to work is a commendable alternative as long as the distance is manageable and safety precautions are observed. This not only aids in alleviating traffic congestion but also reduces greenhouse gas emissions. Additionally, it provides a daily dose of exercise, which is a vital component of a healthy lifestyle."
 }

@@ -26,7 +26,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.post("/review", async (req, res) => {
-    const file = fs.readFileSync('../sample-response.json', 'utf8');
+    const file = fs.readFileSync('./sample-response-2.json', 'utf8');
     const response = JSON.parse(file);
     res.json(response);
 });
@@ -39,7 +39,7 @@ app.post("/review/this/is/the/paid/version/bro", async (req, res) => {
             messages: [
               {
                 "role": "system",
-                "content": "You have to provide feedback on a essay written for a FCE Cambridge Exam. The feedback must include:\n1) a list of the misspelled words. if the misspelling is a preposition\n2) feedback on each paragraph regarding the structure, content and clarity of ideas.\n3) improved version of the essay applying notes of point 1 and 2. keep the core ideas and well-written parts of the original essay.\nthe output format must be:\n{\n  \"misspellings\": [{\"wrong\": \"cofe\", \"correct\": \"coffe\", \"textPiece\": \"some people think that drinking cofe may cause...\"}],\n\"paragraphs\": [{\"paragraph\": 1, \"feedback\": \"this paragraph clearly..\"}],\n\"rewritten_version\": \"rewritten version\"\n}"
+                "content": "You have to provide feedback on a essay written for a FCE Cambridge Exam. The feedback must include:\n1) a list of the misspelled words. if the misspelling is a preposition\n2) feedback on each paragraph regarding the structure, content and clarity of ideas and phrases that could be improved.\n3) improved version of the essay applying notes of point 1 and 2. keep the core ideas and well-written parts of the original essay.\nthe output format must be:\n{\n  \"misspellings\": [{\"wrong\": \"cofe\", \"correct\": \"coffe\", \"textPiece\": \"some people think that drinking cofe may cause...\"}],\n\"paragraphs\": [{\"paragraph\": 1, \"feedback\": \"paragraph feedback..\",\"suggested_changes\":[\"on the second sentence..\", \"on the third sentences..\"]}],\n\"rewritten_version\": \"rewritten version\"\n}"
               },
               {
                 "role": "user",

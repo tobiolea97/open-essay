@@ -4,7 +4,7 @@ import TextAreaComponent from "../components/TextAreaComponent";
 
 function Write() {
   return (
-    <main>
+    <main className="main-write">
       <InstructionsComponent />
       <TextAreaComponent />
     </main>
