@@ -65,7 +65,7 @@
   grid-template-columns: repeat(4,1fr);
   grid-template-rows: 9fr 1fr;
   grid-gap: 3px;
-  grid-template-areas: "textarea textarea textarea textarea" "button . . counter"; ;
+  grid-template-areas: "textarea textarea textarea textarea" "counter . . button"; ;
   padding: 0 25px 0 25px;
   margin-top: 20px;
   border-radius: 10px;
@@ -88,8 +88,8 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  align-self: flex-start;
   align-self: center;
+  justify-self: end;
 }
 
 .text-area button:hover {
@@ -97,8 +97,8 @@
 }
 
 .text-area em {
-  justify-self: self-end;
   align-self: center;
+  justify-self: self-start;
   grid-area: counter;
 }
 
