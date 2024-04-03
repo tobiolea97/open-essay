@@ -6,21 +6,21 @@ import { review } from "../api/OpenAiReducer";
 export const TextAreaComponent = () => {
     const dispatch = useDispatch()
     const [inputValue, setInputValue] = useState("");
+    const [wordCount, setWordCount] = useState(0);
+    const [paragraphCount, setParagraphCount] = useState(0);
+    const [error, setError] = useState(null);
     
     useEffect(() => {
-        setInputValue("default input lorem ipsum");
+        setError("");
     }, []);
 
     const onSubmit = async (event) => {
         event.preventDefault();
-
-        if(inputValue === "" || inputValue === undefined)
+        if(inputValue === "" || inputValue === undefined || wordCount < 4 || paragraphCount < 1)
         {
+            setError("Please, write a at least 100 words and 3 paragraphs.");
             return;
         }
-
-        console.log(inputValue);
-
         await dispatch(review(inputValue));
     }
 
@@ -28,16 +28,24 @@ export const TextAreaComponent = () => {
         setInputValue(event.target.value);
     };
 
+    useEffect(() => {
+        setWordCount(inputValue.split(/\s+/).filter((word) => word !== "").length);
+    }, [inputValue]);
+
+    useEffect(() => {
+        setParagraphCount(inputValue.split(/\n\n/).filter((word) => word !== "").length);
+    }, [inputValue]);
+
     return (
         <form className="text-area" onSubmit={onSubmit}>
             <textarea
                 className="text-area-input"
                 placeholder="Write your essay.."
-                rows="20"
                 onChange={handleChange}
                 value={inputValue}></textarea>
             <button className="button" type="submit">Submit</button>
-            <em> 256 words</em>
+            <span>{error}</span>
+            <em>{wordCount} words / {paragraphCount} paragraphs</em>
         </form>
     )
 }

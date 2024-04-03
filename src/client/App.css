@@ -25,18 +25,18 @@
 }
 
 .app main  {
-  max-width: 70%;
+  max-width: 80%;
   margin: 0 auto;
 }
 
 .instructions {
-  flex: 0 1 1;
-  max-width: 25%;
+  flex: 1 1 auto;
+  max-width: 30%;
   background-color: #4c6c8d;
   padding: 10px 25px 15px 25px;
   margin-top: 20px;
   border-radius: 10px;
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .instructions p {
@@ -52,7 +52,7 @@
 
 .instructions h2 {
   color: white;
-  font-size: 20px;
+  font-size: 26px;
 }
 
 .instructions li {
@@ -60,16 +60,16 @@
 }
 
 .text-area {
-  flex: 1 0 auto;
+  flex: 1 1 auto;
   display: grid;
   grid-template-columns: repeat(4,1fr);
   grid-template-rows: 9fr 1fr;
   grid-gap: 3px;
-  grid-template-areas: "textarea textarea textarea textarea" "counter . . button"; ;
+  grid-template-areas: "textarea textarea textarea textarea" "error error counter button"; ;
   padding: 0 25px 0 25px;
   margin-top: 20px;
   border-radius: 10px;
-  font-size: 12px;
+  font-size: 18px;
 }
 
 .text-area textarea {
@@ -77,19 +77,21 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 15px;
+  font-size: 18px;
 }
 
 .text-area button {
   grid-area: button;
-  width: 80px;
+  width: 80%;
   background-color: black;
   color: white;
-  padding: 7px 20px;
+  padding: 7px 25px 7px 25px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   align-self: center;
-  justify-self: end;
+  justify-self: center;
+  font-size: 20px;
 }
 
 .text-area button:hover {
@@ -98,8 +100,16 @@
 
 .text-area em {
   align-self: center;
-  justify-self: self-start;
+  justify-self: self-end;
   grid-area: counter;
+  margin-left: 10px;
+}
+
+.text-area span {
+  grid-area: error;
+  color:red;
+  align-self: center;
+  font-size: 16px;
 }
 
 main {
