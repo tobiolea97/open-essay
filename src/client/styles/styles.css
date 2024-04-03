@@ -1,18 +1,18 @@
 .main-review .feedback ul li {
   margin: 0;
-  font-size: 12px;
+  font-size: 15px;
 }
 
 .main-review .feedback ul {
-  margin: 5px 0 0 0;
+  margin: 0 0 0 0;
 }
 
 .main-review .feedback p {
   margin: 0;
-  font-size: 12px;
+  font-size: 15px;
 }
 
-.main-review .feedback h3 {
+.main-review .paragraph h3 {
   margin: 0 0 10px 0;
 }
 
@@ -32,7 +32,7 @@
   margin: 50px auto;
   padding: 0;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 2fr;
   grid-template-rows: repeat(auto-fill, minmax(auto, 1fr));
   grid-column-gap: 20px;
 }
@@ -62,7 +62,6 @@
 
 .main-review p:nth-child(odd) {
   color: black;
-  font-style: italic;
   margin-bottom: 20px;
 }
 
