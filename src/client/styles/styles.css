@@ -1,3 +1,25 @@
+.note {
+  padding: 5px 15px;
+  border-radius: 10px;
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 10px; 
+  background-color: #D9D7D2;
+  border: black 1px solid;
+}
+
+.left {
+  margin-right: 10%;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.right {
+  margin-left: 10%;
+  margin-bottom: 10px;
+  text-align: right;
+}
+
 .title {
   background-color: #333;
   color: white;
@@ -69,7 +91,7 @@
   margin: 50px auto;
   padding: 0;
   display: grid;
-  grid-template-columns: auto 8fr 8fr 12fr;
+  grid-template-columns: auto 8fr 8fr 8fr;
   grid-template-rows: repeat(auto-fill, minmax(auto, 1fr));
   grid-column-gap: 20px;
 }
@@ -163,7 +185,7 @@
 
 .instructions {
   grid-area: instructions;
-  background-color: #9BBEC8;
+  background-color: #F1EB90;
   padding: 10px 25px 15px 25px;
   border-radius: 10px;
   font-size: 16px;
