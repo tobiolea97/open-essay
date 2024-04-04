@@ -1,3 +1,34 @@
+.title {
+  background-color: #333;
+  color: white;
+  padding: 0px;
+  margin: 0;
+  text-align: center;
+}
+
+.paragraph-number h4 {
+  position: absolute;
+  right: 0; /* Stick to the right border */
+  transform: rotate(-90deg); /* Rotate -90 degrees */
+  transform-origin: top right; /* Pivot from the top right corner */
+  white-space: nowrap;
+  color:white;
+  background-color: #333;
+  padding: 0 20px;
+  border-radius: 5px 5px 0 0;
+}
+
+.paragraph-number {
+  position: relative;
+}
+
+
+
+.main-review h2 {
+  align-self: center;
+  justify-self: center;
+}
+
 .main-review .feedback ul li {
   margin: 0;
   font-size: 15px;
@@ -17,13 +48,19 @@
 }
 
 .main-review .feedback {
+  background-color: #9FBB73;
   padding: 20px;
   display: flex;
   flex-flow: column wrap;
 }
 
+.rewrite {
+  background-color: #F1EB90;
+  padding: 20px;
+}
+
 .main-review .paragraph {
-  background-color: #bcc9d6;
+  background-color: #F3B664;
   padding: 20px;
 }
 
@@ -32,24 +69,9 @@
   margin: 50px auto;
   padding: 0;
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: auto 8fr 8fr 12fr;
   grid-template-rows: repeat(auto-fill, minmax(auto, 1fr));
   grid-column-gap: 20px;
-}
-
-.paragraph-feedback {
-  padding: 25px 25px 25px 25px;
-  border-radius: 10px;
-  font-size: 16px;
-}
-
-.paragraph-feedback h3 {
-  margin-bottom: 10px;
-}
-
-.paragraph-feedback p {
-  padding-top: 0;
-  padding-bottom: 10px;
 }
 
 .main-review {
@@ -57,7 +79,6 @@
   padding: 25px 25px 25px 25px;
   border-radius: 10px;
   font-size: 16px;
-  border: solid 1px #ccc;
 }
 
 .main-review p:nth-child(odd) {
@@ -66,14 +87,14 @@
 }
 
 .main-review wrong {
-  color: red;
   text-decoration: line-through;
-  font-weight: 800;
+  font-weight: 900;
+  background-color: red;
 }
 
 .main-review right {
-  color: rgb(24, 153, 24);
-  font-weight: 800;
+  background-color: rgb(33, 192, 33);
+  font-weight: 900;
 }
 
 /* 
@@ -142,30 +163,30 @@
 
 .instructions {
   grid-area: instructions;
-  background-color: #4c6c8d;
+  background-color: #9BBEC8;
   padding: 10px 25px 15px 25px;
   border-radius: 10px;
   font-size: 16px;
 }
 
 .instructions p {
-  color: white;
+  color: black;
   font-weight: 200;
 }
 
 .instructions em {
-  color: white;
+  color: black;
   font-weight: 800;
   margin: 0 10px 0 10px;
 }
 
 .instructions h2 {
-  color: white;
+  color: black;
   font-size: 26px;
 }
 
 .instructions li {
-  color: white;
+  color: black;
 }
 
 .text-area {
@@ -193,7 +214,7 @@
 .control-panel button {
   grid-area: button;
   width: auto;
-  background-color: black;
+  background-color: #164863;
   color: white;
   padding: 7px 20px 7px 20px;
   border: none;
