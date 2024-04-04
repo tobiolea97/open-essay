@@ -26,20 +26,87 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.post("/review", async (req, res) => {
-    const file = fs.readFileSync('./sample-response-2.json', 'utf8');
-    const response = JSON.parse(file);
-    res.json(response);
+    const { message } = req.body;
+    const file = fs.readFileSync('./sample-response.txt', 'utf8');
+    const output = parseResponse(file, message);
+    res.json(output);
 });
+
+function parseResponse(file, message) {
+  let misspellings = parseMisspellings(file);
+  let rephrases = parseRephrases(file);
+  let comments = parseComments(file);
+  let rewrite = parseRewrite(file);
+  let original = message.split(/\n\n/g);
+
+  return {
+    misspellings: misspellings,
+    rephrases: rephrases,
+    comments: comments,
+    rewrite: rewrite,
+    original: original
+  }
+}
+
+function parseMisspellings(file) {
+  var misspellingsArray = [];
+  var misspellings = file.split("###rephrases###")[0];
+  misspellings = misspellings.replace(/###misspellings###\r\n/, "");
+  misspellings = misspellings.split(/\r\n/g);
+  misspellings.forEach(element => {
+    if(element.split("|")[0] && element.split("|")[1] && element.split("|")[2]) {
+      let misspellingsElement = {
+        wrong: element.split("|")[0],
+        correct: element.split("|")[1],
+        sentence: element.split("|")[2],
+      };
+      misspellingsArray.push(misspellingsElement);
+    }
+  });
+  return misspellingsArray;
+}
+
+function parseRephrases(file) {
+  var rephrasesArray = [];
+  var rephrases = file.split("###rephrases###")[1].split("###comments###")[0];
+  rephrases = rephrases.split(/\r\n/g);
+  rephrases.forEach(element => {
+    if(element.split("|")[0] && element.split("|")[1]) {
+      let rephrasesElement = {
+        unclear: element.split("|")[0],
+        rephrased: element.split("|")[1],
+      };
+      rephrasesArray.push(rephrasesElement);
+    }
+  });
+  return rephrasesArray;
+}
+
+function parseComments(file) {
+  var commentsArray = [];
+  var comments = file.split("###comments###")[1].split("###rewrite###")[0].replace(/\r\n/g, "");
+  comments = comments.split(/\|/g);
+  comments.forEach(element => {
+    commentsArray.push(element);
+  });
+  return commentsArray;
+}
+
+function parseRewrite(file) {
+  var rewrite = file.split(/###rewrite###\r\n/)[1];
+  let paragraphs = rewrite.split(/\r\n\r\n/);
+  return paragraphs;
+}
 
 app.post("/review/this/is/the/paid/version/bro", async (req, res) => {
     const { message } = req.body;
     try {
         const response = await openai.chat.completions.create({
-            model: "gpt-3.5-turbo",
+            model: "gpt-4",
             messages: [
               {
                 "role": "system",
-                "content": "You have to provide feedback on a essay written for a FCE Cambridge Exam. The feedback must include:\n1) a list of the misspelled words. if the misspelling is a preposition\n2) feedback on each paragraph regarding the structure, content and clarity of ideas and phrases that could be improved.\n3) improved version of the essay applying notes of point 1 and 2. keep the core ideas and well-written parts of the original essay.\nthe output format must be:\n{\n  \"misspellings\": [{\"wrong\": \"cofe\", \"correct\": \"coffe\", \"textPiece\": \"some people think that drinking cofe may cause...\"}],\n\"paragraphs\": [{\"paragraph\": 1, \"feedback\": \"paragraph feedback..\",\"suggested_changes\":[\"on the second sentence..\", \"on the third sentences..\"]}],\n\"rewritten_version\": \"rewritten version\"\n}"
+                "content": "You have to provide feedback on a essay written for a FCE Cambridge Exam. Include:\n1) a list of mistakes. include the wrong word/phrase and the exact word/phrase that correct the mistake\n2) a list of phrases that must be rephrased\n3) comments on the overall structure, content, transitions and tips to improve it..\n4) improved version of the essay. keep the core ideas and well-written parts of the original essay.\nthe output format is below (use \"|\" as char separator, and avoid adding special characters such as \", ', - and others):\n###mispellings###\nwrong-word-or-expression-1|correct-word-or-expression-1|original-sentence-where-the-error-was-found\n###rephrases###\nunclear-phrase|rephrase\n###comments###\nComment|Another comment|third comment\n###rewrite###\nwrite an improved version. use between 240 and 280 words."
               },
               {
                 "role": "user",
@@ -62,7 +129,6 @@ app.post("/review/this/is/the/paid/version/bro", async (req, res) => {
         res.status(500).json({ error: "Internal Server Error" });
     }
 });
-
 
 ViteExpress.listen(app, 3000, () =>
   console.log("Server is listening on port 3000..."),

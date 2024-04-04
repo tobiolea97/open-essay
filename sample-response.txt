@@ -1,0 +1,37 @@
+###misspellings###
+grows bigger|progresses|As technology progresses
+become stiller|become more sedentary|we become more sedentary
+requires|require|our daily tasks require
+excersise|exercise|people do not include exercise
+nowaday|modern|aspects of modern lifestyle
+excersise|exercise|benefits of including regular exercise
+desktop|desk|sitting at a desk
+lead us|leads us|This leads us to
+after of long hours|after long hours|after long hours
+runs twice or thre times a weeks|run twice or three times a week|people who run twice or three times a week
+which help them|which helps them|which helps them to rest better
+trainning|training|months of training
+excersise|exercise|doing regular exercise
+spent|spend|amount of time we spend
+spent|spend|think workers spend
+think|thing|The good thing
+an free-time|a free-time|finding a free-time
+
+###rephrases###
+This lead us to make a lot of mental work, without doing any physical effort|This leads us to do a lot of mental work but very little physical activity
+It seems that most of our daily tasks requires to be sitting in front of a computer|Most of our daily tasks seem to require us to sit in front of a computer
+finding an free-time activities that does not imply stay sitting in front of a screen will always be up to us|finding leisure activities that don't involve sitting in front of a screen is entirely up to us
+
+###comments###
+The introduction could be stronger and more engaging|The conclusion should restate the main points and the thesis, not introduce new information|The transitions between paragraphs could be smoother|Avoid redundancy and repetition in your sentences
+
+###rewrite###
+As technology advances, we become more sedentary. Most of our daily tasks seem to require us to sit in front of a computer, leading many to exclude regular exercise from their schedules. This essay will explore modern lifestyle trends, the benefits of regular exercise, and provide suggestions for incorporating more physical activity into our lives.
+
+In the contemporary world, economic demands often result in a sedentary lifestyle. Whether working or studying, we spend substantial amounts of time seated at a desk. This leads to a high amount of mental exertion but minimal physical activity. A problematic consequence is that after long hours of cognitive exertion, people often feel too fatigued to engage in outdoor activities or sports, choosing instead more screen-based leisure activities.
+
+Nonetheless, the benefits of regular exercise are widely known. Research has demonstrated that individuals who run twice or three times a week experience more restful sleep, aiding their overall rest and recuperation. Additionally, those who have commenced a regular sporting activity often report improved self-esteem after a few months.
+
+A misconstrued belief is that regular exercise necessitates strenuous gym workouts or daily long-distance running. However, a simple daily 10-minute walk can serve as an effective starting point. The key is to find an activity that we enjoy and gradually increase the time spent engaging in it.
+
+In conclusion, it is evident that both students and working professionals spend copious amounts of time seated, highlighting the importance of incorporating physical activities into our schedules. The encouraging factor is that the choice to find leisure activities that don't involve sitting in front of a screen is entirely in our hands.
