@@ -2,16 +2,19 @@ import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useToken } from '../auth/useToken';
 import { useQueryParams } from '../util/useQueryParams';
+import { useDispatch } from 'react-redux';
+import { login } from "../data/Login";
 
 function Login() {
   const navigate = useNavigate();
   const [token, setToken] = useToken();
   const [googleOauthUrl, setGoogleOauthUrl] = useState("");
   const { token: oauthToken } = useQueryParams();
+  const dispatch = useDispatch();
   
   useEffect(() => {
     if (oauthToken) {
-        setToken(oauthToken);
+        dispatch(login(oauthToken));
         navigate("/home");
     }
   }, [oauthToken, setToken, history]);

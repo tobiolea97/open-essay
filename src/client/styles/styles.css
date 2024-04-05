@@ -31,8 +31,7 @@
   flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
-  height: auto;
-  padding: 5px 40px;
+  padding: 0px 40px;
   text-decoration: none;
   border-radius: 10px;
   border: 1px solid #555;

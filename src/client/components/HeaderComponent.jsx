@@ -1,19 +1,16 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import { useToken } from '../auth/useToken';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from "../data/Login";
 
 export const HeaderComponent = () => {
-    const [token, setToken] = useToken();
-    const [isLoggedIn, setIsLoggedIn] = useState(!!token);
     const navigate = useNavigate();
-
-    useEffect(() => {
-        setIsLoggedIn(!!token);
-    }, [token]);
+    const dispatch = useDispatch();
+    const auth = useSelector((state) => state.login)
 
     const onClickLogOut = () => {
-        localStorage.removeItem('token');
+        dispatch(logout());
         navigate(`/login`);
     };
 
@@ -24,7 +21,7 @@ export const HeaderComponent = () => {
                     <img src='gpt-logo.png' alt='GPT-3' />
                     <h1>Open Essay</h1>
                 </div>
-                { isLoggedIn &&
+                { auth.token &&
                     <a className='logout' onClick={onClickLogOut}>
                         <img className="logout" src='logout.png' alt='GPT-3' />
                     </a>
