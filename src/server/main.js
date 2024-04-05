@@ -27,9 +27,10 @@ app.use(cors());
 
 app.post("/review", async (req, res) => {
     //simulate delay
-    await new Promise((resolve) => setTimeout(resolve, 10000));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
     const { message } = req.body;
-    const file = fs.readFileSync('./sample-response.txt', 'utf8');
+    const file = fs.readFileSync('./open-ai-responses/output-1712289297895.txt', 'utf8');
+    // write the content of output into a file. the name of the file must include the date and time of the request
     const output = parseResponse(file, message);
     res.json(output);
 });
@@ -53,8 +54,8 @@ function parseResponse(file, message) {
 function parseMisspellings(file) {
   var misspellingsArray = [];
   var misspellings = file.split("###rephrases###")[0];
-  misspellings = misspellings.replace(/###misspellings###\r\n/, "");
-  misspellings = misspellings.split(/\r\n/g);
+  misspellings = misspellings.replace("\"###misspellings###\\n", "");
+  misspellings = misspellings.split("\\n");
   misspellings.forEach(element => {
     if(element.split("|")[0] && element.split("|")[1] && element.split("|")[2]) {
       let misspellingsElement = {
@@ -71,7 +72,7 @@ function parseMisspellings(file) {
 function parseRephrases(file) {
   var rephrasesArray = [];
   var rephrases = file.split("###rephrases###")[1].split("###comments###")[0];
-  rephrases = rephrases.split(/\r\n/g);
+  rephrases = rephrases.split("\\n");
   rephrases.forEach(element => {
     if(element.split("|")[0] && element.split("|")[1]) {
       let rephrasesElement = {
@@ -86,7 +87,9 @@ function parseRephrases(file) {
 
 function parseComments(file) {
   var commentsArray = [];
-  var comments = file.split("###comments###")[1].split("###rewrite###")[0].replace(/\r\n/g, "");
+  var comments = file.split("###comments###")[1];
+  comments = comments.split("###rewrite###")[0];
+  comments = comments.replace("\\n", "");
   comments = comments.split(/\|/g);
   comments.forEach(element => {
     commentsArray.push(element);
@@ -95,41 +98,46 @@ function parseComments(file) {
 }
 
 function parseRewrite(file) {
-  var rewrite = file.split(/###rewrite###\r\n/)[1];
-  let paragraphs = rewrite.split(/\r\n\r\n/);
+  var rewrite = file.split("###rewrite###\\n")[1];
+  if(rewrite === undefined) {
+    rewrite = file.split("###rewrite###\\n")[1];
+  }
+  let paragraphs = rewrite.split("\\n\\n");
   return paragraphs;
 }
 
 app.post("/review/this/is/the/paid/version/bro", async (req, res) => {
-    const { message } = req.body;
-    try {
-        const response = await openai.chat.completions.create({
-            model: "gpt-4",
-            messages: [
-              {
-                "role": "system",
-                "content": "You have to provide feedback on a essay written for a FCE Cambridge Exam. Include:\n1) a list of mistakes. include the wrong word/phrase and the exact word/phrase that correct the mistake\n2) a list of phrases that must be rephrased\n3) comments on the overall structure, content, transitions and tips to improve it..\n4) improved version of the essay. keep the core ideas and well-written parts of the original essay.\nthe output format is below (use \"|\" as char separator, and avoid adding special characters such as \", ', - and others):\n###mispellings###\nwrong-word-or-expression-1|correct-word-or-expression-1|original-sentence-where-the-error-was-found\n###rephrases###\nunclear-phrase|rephrase\n###comments###\nComment|Another comment|third comment\n###rewrite###\nwrite an improved version. use between 240 and 280 words."
-              },
-              {
-                "role": "user",
-                "content": `${message}`
-              }
-            ],
-            temperature: 1,
-            max_tokens: 1500,
-            top_p: 1,
-            frequency_penalty: 0,
-            presence_penalty: 0,
-          });
-
+  const { message } = req.body;
+  try {
+      const response = await openai.chat.completions.create({
+          model: "gpt-4",
+          messages: [
+            {
+              "role": "system",
+              "content": "You have to provide feedback on a essay written for a FCE Cambridge Exam. Include:\n1) a list of mistakes. include the wrong word/phrase and the exact word/phrase that correct the mistake\n2) a list of phrases that must be rephrased\n3) comments on the overall structure, content, transitions and tips to improve it..\n4) improved version of the essay. keep the core ideas and well-written parts of the original essay.\nthe output format is below (use \"|\" as char separator, and avoid adding special characters such as \", ', - and others):\n###misspellings###\nwrong-word-or-expression-1|correct-word-or-expression-1|original-sentence-where-the-error-was-found\n###rephrases###\nunclear-phrase|rephrase\n###comments###\nComment|Another comment|third comment\n###rewrite###\nwrite an improved version. use between 240 and 280 words."
+            },
+            {
+              "role": "user",
+              "content": `${message}`
+            }
+          ],
+          temperature: 1,
+          max_tokens: 1500,
+          top_p: 1,
+          frequency_penalty: 0,
+          presence_penalty: 0,
+        });
+        let fileName = `./open-ai-responses/output-${Date.now()}.txt`;
         const lastMessageContent = response.choices[0].message.content;
-        const parsedContent = JSON.parse(lastMessageContent);
-        res.json(parsedContent);
+        fs.writeFileSync(fileName, JSON.stringify(lastMessageContent));
+        const file = fs.readFileSync(fileName, 'utf8');
+        const output = parseResponse(file, message);
+        res.json(output);
 
-    } catch (error) {
-        console.error("Error calling the OpenAI API:", error);
-        res.status(500).json({ error: "Internal Server Error" });
-    }
+  } catch (error) {
+      console.error("Error calling the OpenAI API:", error);
+      res.status(500).json({ error: "Internal Server Error" });
+  }
 });
 
 ViteExpress.listen(app, 3000, () =>
