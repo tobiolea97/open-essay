@@ -1,3 +1,45 @@
+/*
+* LOGIN
+*/
+.oauth-background {
+  position: fixed; /* Fixed positioning makes the div cover the entire screen */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex; /* Flexbox for centering the spinner */
+  flex-direction: column;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+.oauth {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #555;
+  height: auto;
+  padding: 5px 40px;
+  text-decoration: none;;
+}
+
+.oauth img {
+  margin-right: 20px;
+  height: 40px;
+  width: 40px;
+}
+
+.main-login {
+  max-width: 60%;
+}
+
+
+
+/*
+* REVIEW
+*/
+
 .rephrase em {
   color: #333;
   font-weight: 800;

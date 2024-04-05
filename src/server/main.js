@@ -4,10 +4,13 @@ import OpenAI from "openai";
 import fs from "fs";
 import bodyParser from "body-parser";
 import cors from "cors";
+import { routes } from "./routes/index.js";
 
 const app = express();
 
-
+routes.forEach(route => {
+  app[route.method](route.path, route.handler);
+});
 
 // get api key
 const data = fs.readFileSync('../openai-key.json', 'utf8');
