@@ -29,7 +29,7 @@ app.post("/review", async (req, res) => {
     //simulate delay
     await new Promise((resolve) => setTimeout(resolve, 1000));
     const { message } = req.body;
-    const file = fs.readFileSync('./open-ai-responses/output-1712289297895.txt', 'utf8');
+    const file = fs.readFileSync('./open-ai-responses/output-1712327366690.txt', 'utf8');
     // write the content of output into a file. the name of the file must include the date and time of the request
     const output = parseResponse(file, message);
     res.json(output);
@@ -92,6 +92,7 @@ function parseComments(file) {
   comments = comments.replace("\\n", "");
   comments = comments.split(/\|/g);
   comments.forEach(element => {
+    element = element.replace("\\n", "");
     commentsArray.push(element);
   });
   return commentsArray;
@@ -114,7 +115,7 @@ app.post("/review/this/is/the/paid/version/bro", async (req, res) => {
           messages: [
             {
               "role": "system",
-              "content": "You have to provide feedback on a essay written for a FCE Cambridge Exam. Include:\n1) a list of mistakes. include the wrong word/phrase and the exact word/phrase that correct the mistake\n2) a list of phrases that must be rephrased\n3) comments on the overall structure, content, transitions and tips to improve it..\n4) improved version of the essay. keep the core ideas and well-written parts of the original essay.\nthe output format is below (use \"|\" as char separator, and avoid adding special characters such as \", ', - and others):\n###misspellings###\nwrong-word-or-expression-1|correct-word-or-expression-1|original-sentence-where-the-error-was-found\n###rephrases###\nunclear-phrase|rephrase\n###comments###\nComment|Another comment|third comment\n###rewrite###\nwrite an improved version. use between 240 and 280 words."
+              "content": "You have to provide feedback on a essay written for a FCE Cambridge Exam. Include:\n1) a list of mistakes.\n2) a list of phrases that must be rephrased\n3) comments on the overall structure, content, transitions and tips to improve it..\n4) improved version of the essay. keep the core ideas and well-written parts of the original essay.\nthe output format is below (use \"|\" as char separator, and avoid adding special characters such as \", ', - and others):\n###misspellings###\nwrong-word-or-expression-1|correct-word-or-expression-1|original-sentence-where-the-error-was-found\n###rephrases###\nunclear-phrase|rephrase\n###comments###\nComment|Another comment|third comment\n###rewrite###\nwrite an improved version. use between 240 and 280 words.\n\nadditional instructions:\nif wrong-word-or-expression-1 is for instance \"there is amazing amount\" (error: lack of an before amazing), correct-word-or-expression-1 should be \"an amazing\"\n\n"
             },
             {
               "role": "user",

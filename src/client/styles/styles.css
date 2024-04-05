@@ -134,7 +134,7 @@
 
 .feedback {
   grid-column: 3/4;
-  grid-row: 2 / span 999;
+  grid-row: 2 / span 2;
   background-color: #9FBB73;
   padding: 20px;
   display: flex;
@@ -143,15 +143,16 @@
 
 .rewrite {
   grid-column: 4/5;
+  grid-row: 2 / span 2;
   background-color: #F1EB90;
-  padding: 20px;
+  padding: 10px 20px;
 }
 
 .paragraph {
-  grid-column: 2/3;  
+  grid-column: 2/3;
+  grid-row: 2 / span 2;
   background-color: #F3B664;
-  padding: 20px;
-  padding-bottom: 40px;
+  padding: 10px 20px;
 }
 
 
@@ -180,44 +181,23 @@
 .main-review wrong {
   text-decoration: line-through;
   font-weight: 900;
-  background-color: red;
+  background-color: rgb(250, 110, 110);
+  border-radius: 10px;
+  padding: 0 5px;
 }
 
 .main-review right {
-  background-color: rgb(33, 192, 33);
+  background-color: rgb(49, 212, 49);
   font-weight: 900;
+  border-radius: 10px;
+  padding: 0 5px;
 }
-
-/* 
-.original-copy p:nth-child(1) {
-  background-color: rgb(201, 201, 87);
-}
-
-.original-copy p:nth-child(2) {
-  background-color: rgb(161, 161, 228);
-}
-
-.original-copy p:nth-child(3) {
-  background-color: rgb(90, 207, 196);
-}
-
-.original-copy p:nth-child(4) {
-  background-color: rgb(235, 194, 61);
-}
-
-.original-copy p:nth-child(5) {
-  background-color: rgb(212, 130, 233);
-}
-
-.original-copy p:nth-child(6) {
-  background-color: rgb(124, 148, 161);
-} */
 
 /************************************************************************************************/
 
 .app {
   width: 100%;
-  min-width: 800px;
+  min-width: 900px;
 }
 
 .app header {

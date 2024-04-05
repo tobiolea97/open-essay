@@ -17,7 +17,6 @@ export const TextAreaComponent = () => {
     }, []);
 
     const handleClick = async (event) => {
-        debugger;
         event.preventDefault();
         if(inputValue === "" || inputValue === undefined || wordCount < 4 || paragraphCount < 1)
         {

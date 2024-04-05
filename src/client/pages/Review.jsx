@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import Spinner from '../components/SpinnerComponent';
 import LoadingReviewLayoutComponent from '../components/review/LoadingReviewLayoutComponent';
+import GridHeaderComponent from '../components/review/GridHeaderComponent';
 
 
 function Review() {
@@ -19,19 +20,10 @@ function Review() {
       { openai.status === "succeeded" && 
         <>
           <div className="main-review">
-            <div></div>
-            <div className="title">
-              <h2>Your version</h2>
-            </div>
-            <div className="title">
-              <h2>How to improve it?</h2>
-            </div>
-            <div className="title">
-              <h2>GPT version</h2>
-            </div>
+            <GridHeaderComponent />
             <div className="paragraph">
-              {openai.sentMessage.map((message, index) => (
-                <p key={index}>{message}</p>
+              {openai.writingReview.original.map((message, index) => (
+                <p key={index} dangerouslySetInnerHTML={{ __html: message }} />
               ))}
             </div>
             <div className="feedback">

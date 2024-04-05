@@ -1,21 +1,12 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux'
+import { GridHeaderComponent } from './GridHeaderComponent';
 
 export const LoadingReviewLayoutComponent = () => {
     const openAiSelector = useSelector((state) => state.OpenAi)
     return (
         <main className="main-review">
-            <div>
-            </div>
-            <div className="title">
-              <h2>Your version</h2>
-            </div>
-            <div className="title">
-              <h2>How to improve it?</h2>
-            </div>
-            <div className="title">
-              <h2>GPT version</h2>
-            </div>
+            <GridHeaderComponent />
             <div className="paragraph">
               {openAiSelector.sentMessage.map((message, index) => (
                 <p key={index}>{message}</p>
