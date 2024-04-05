@@ -5,6 +5,9 @@ import fs from "fs";
 import bodyParser from "body-parser";
 import cors from "cors";
 import { routes } from "./routes/index.js";
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+require('dotenv').config();
 
 const app = express();
 
@@ -27,6 +30,9 @@ const port = 3000;
 
 app.use(bodyParser.json());
 app.use(cors());
+
+// console.log("GOOGLE_CLIENT_ID", process.env.GOOGLE_CLIENT_ID);
+// console.log("GOOGLE_CLIENT_SECRET", process.env.GOOGLE_CLIENT_SECRET);
 
 app.post("/review", async (req, res) => {
     //simulate delay

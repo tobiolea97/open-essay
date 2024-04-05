@@ -1,12 +1,12 @@
 import { google } from 'googleapis';
-import fs from 'fs';
 
-const data = fs.readFileSync('../googleapi-key.json', 'utf8');
-const config = JSON.parse(data);
 
-// TODO: leave the id and secret in environment variables
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+require('dotenv').config();
+
 export const oauthClient = new google.auth.OAuth2(
-    config.GOOGLE_CLIENT_ID,
-    config.GOOGLE_CLIENT_SECRET,
-    'http://localhost:8080/auth/google/callback',
+    process.env.GOOGLE_CLIENT_ID,
+    process.env.GOOGLE_CLIENT_SECRET,
+    'http://localhost:3000/auth/google/callback',
 );
