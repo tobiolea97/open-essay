@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react';
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { review } from "../api/OpenAiReducer";
+import {useNavigate} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import React, { useEffect, useState } from 'react';
+import { storeMessage, setStatus } from "../../data/api/OpenAiReducer";
+import { review } from "../../data/api/OpenAiReducer";
 
 export const TextAreaComponent = () => {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
     const [inputValue, setInputValue] = useState("");
     const [wordCount, setWordCount] = useState(0);
     const [paragraphCount, setParagraphCount] = useState(0);
@@ -21,6 +23,11 @@ export const TextAreaComponent = () => {
             setError("Please, write a at least 100 words and 3 paragraphs.");
             return;
         }
+        // futher validation
+
+        dispatch(storeMessage(inputValue));
+        // dispatch(setStatus("processing")); this is not neccesary because the status is set in the reducer
+        navigate("/review");
         await dispatch(review(inputValue));
     }
 

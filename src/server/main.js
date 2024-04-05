@@ -26,6 +26,8 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.post("/review", async (req, res) => {
+    //simulate delay
+    await new Promise((resolve) => setTimeout(resolve, 10000));
     const { message } = req.body;
     const file = fs.readFileSync('./sample-response.txt', 'utf8');
     const output = parseResponse(file, message);

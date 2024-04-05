@@ -1,6 +1,6 @@
 import { useState } from "react";
-import InstructionsComponent from "../components/InstructionsComponent";
-import TextAreaComponent from "../components/TextAreaComponent";
+import InstructionsComponent from "../components/write/InstructionsComponent";
+import TextAreaComponent from "../components/write/TextAreaComponent";
 
 function Write() {
   return (

@@ -1,3 +1,38 @@
+.spinner-background {
+  position: fixed; /* Fixed positioning makes the div cover the entire screen */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Black background with 50% opacity */
+  display: flex; /* Flexbox for centering the spinner */
+  flex-direction: column;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  z-index: 9999; /* Ensure the background is above other elements */
+}
+
+.spinner {
+  height: 150px;
+  width: 150px;
+  background: linear-gradient(to right, #333 50%, #fff 50%);
+  border-radius: 50%;
+  animation: spin 3s linear infinite;
+}
+
+.loading-label {
+  color: #fff; /* White text */
+  margin-top: 20px; /* Space above the label */
+  font-size: 20px; /* Text size */
+  text-align: center; /* Center the text */
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .note {
   padding: 5px 15px;
   border-radius: 10px;
@@ -66,7 +101,7 @@
   margin: 0 0 10px 0;
 }
 
-.main-review .feedback {
+.feedback {
   grid-column: 3/4;
   grid-row: 2 / span 999;
   background-color: #9FBB73;
@@ -76,14 +111,23 @@
 }
 
 .rewrite {
+  grid-column: 4/5;
+  grid-row: 2 / span 999;
   background-color: #F1EB90;
   padding: 20px;
 }
 
-.main-review .paragraph {
+.paragraph {
+  grid-column: 2/3;
+  grid-row: 2 / span 999;
   background-color: #F3B664;
   padding: 20px;
   padding-bottom: 40px;
+}
+
+.loading-size-section {
+  padding: 0;
+  height: 600px;
 }
 
 .app .main-review  {

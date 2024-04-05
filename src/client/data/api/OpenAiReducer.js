@@ -1,13 +1,13 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    result: {},
+    sentMessage: null,
+    writingReview: null,
     status: "idle",
     error: ""
 };
 
 export const review = createAsyncThunk('/essay/review', async (production) => {
-        debugger;
         let response;
         let request = {
             "message": production
@@ -32,16 +32,22 @@ export const review = createAsyncThunk('/essay/review', async (production) => {
 const reviewSlice = createSlice({
     name: 'review',
     initialState,
-    reducers: { },
+    reducers: {
+        storeMessage: (state, action) => {
+            state.sentMessage = action.payload;
+        },
+        setStatus: (state, action) => {
+            status = action.payload;
+        }
+    },
     extraReducers: (builder) => {
         builder
             .addCase(review.pending, (state) => {
                 state.status = 'loading';
             })
             .addCase(review.fulfilled, (state, action) => {
-                debugger;
                 state.status = 'succeeded';
-                state.token = action.payload;
+                state.writingReview = action.payload;
             })
             .addCase(review.rejected, (state, action) => {
                 state.status = 'failed';
@@ -49,5 +55,8 @@ const reviewSlice = createSlice({
             })
     }
 });
+
+export const { storeMessage, setStatus } = reviewSlice.actions;
+export const selectReviewStatus = (state) => state.status;
 
 export default reviewSlice.reducer;

@@ -1,5 +1,5 @@
 import { Outlet, Link, useLoaderData, Form, redirect, NavLink, useNavigation, useSubmit,} from "react-router-dom";
-import HeaderComponent from "../components/Header";
+import HeaderComponent from "../components/HeaderComponent";
 import "../styles/styles.css"
 
 export default function Root() {
