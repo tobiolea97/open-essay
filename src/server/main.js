@@ -6,6 +6,8 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import { routes } from "./routes/index.js";
 import { createRequire } from 'module';
+import { initializeDbConnection } from './db.js';
+
 const require = createRequire(import.meta.url);
 require('dotenv').config();
 
@@ -149,6 +151,8 @@ app.post("/review/this/is/the/paid/version/bro", async (req, res) => {
       res.status(500).json({ error: "Internal Server Error" });
   }
 });
+
+initializeDbConnection();
 
 ViteExpress.listen(app, 3000, () =>
   console.log("Server is listening on port 3000..."),

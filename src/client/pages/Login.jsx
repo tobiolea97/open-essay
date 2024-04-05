@@ -1,7 +1,21 @@
+import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { useToken } from '../auth/useToken';
+import { useQueryParams } from '../util/useQueryParams';
 
 function Login() {
+  const navigate = useNavigate();
+  const [, setToken] = useToken();
   const [googleOauthUrl, setGoogleOauthUrl] = useState("");
+  const { token: oauthToken } = useQueryParams();
+  
+  useEffect(() => {
+    if (oauthToken) {
+        setToken(oauthToken);
+        navigate("/home");
+    }
+  }, [oauthToken, setToken, history]);
+
   
   useEffect(() => {
     fetch("http://localhost:3000/auth/google/url")
