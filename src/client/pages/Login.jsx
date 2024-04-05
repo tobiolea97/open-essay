@@ -5,7 +5,7 @@ import { useQueryParams } from '../util/useQueryParams';
 
 function Login() {
   const navigate = useNavigate();
-  const [, setToken] = useToken();
+  const [token, setToken] = useToken();
   const [googleOauthUrl, setGoogleOauthUrl] = useState("");
   const { token: oauthToken } = useQueryParams();
   
@@ -16,6 +16,11 @@ function Login() {
     }
   }, [oauthToken, setToken, history]);
 
+  useEffect(() => {
+    if(token != null) {
+        navigate(`/home`);
+    }
+})
   
   useEffect(() => {
     fetch("http://localhost:3000/auth/google/url")

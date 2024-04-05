@@ -1,3 +1,19 @@
+.logout img:hover {
+  transform: scale(1.2);
+}
+
+.logout img {
+  width: 35px;
+  height: 35px;
+}
+
+.logout {
+  grid-area: logout;
+  align-self: center;
+  justify-self: center;
+  cursor: pointer;
+}
+
 /*
 * LOGIN
 */
@@ -252,9 +268,16 @@
 }
 
 .app header {
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+  grid-template-areas: ". title logout";
+  background-color: black;
+}
+
+.app .header {
+  grid-area: title;
   width: 100%;
   height: 70px;
-  background-color: black;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -266,7 +289,7 @@
   margin: 0;
 }
 
-.app header img {
+.app .header img {
   width: 50px;
   height: 50px;
   margin-right: 20px;

@@ -3,8 +3,7 @@ function Home() {
     <main className="main-login">
       <div className="oauth-background">
           <a className="oauth" onClick={() => window.location.href = googleOauthUrl}>
-            <img src="google-logo.png" alt="Google Icon" />
-            <p className="loading-label">Login with Google</p>
+          <h1>Your are on the home page now!</h1>
           </a>
         </div>
     </main>
