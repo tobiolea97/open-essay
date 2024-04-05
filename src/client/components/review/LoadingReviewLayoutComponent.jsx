@@ -17,7 +17,9 @@ export const LoadingReviewLayoutComponent = () => {
               <h2>GPT version</h2>
             </div>
             <div className="paragraph">
-                {openAiSelector.sentMessage}
+              {openAiSelector.sentMessage.map((message, index) => (
+                <p key={index}>{message}</p>
+              ))}
             </div>
             <div className="feedback">
             </div>

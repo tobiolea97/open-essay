@@ -1,3 +1,9 @@
+.rephrase em {
+  color: #333;
+  font-weight: 800;
+  font-size: 14px;
+}
+
 .spinner-background {
   position: fixed; /* Fixed positioning makes the div cover the entire screen */
   top: 0;
@@ -33,26 +39,51 @@
   }
 }
 
-.note {
-  padding: 5px 15px;
-  border-radius: 10px;
-  font-size: 14px;
-  text-align: center;
-  margin-bottom: 10px; 
-  background-color: #D9D7D2;
-  border: black 1px solid;
-  text-align: center;
-}
-
-.left {
+.feedback .note:nth-child(odd) {
   margin-right: 10%;
   margin-bottom: 10px;
 }
 
-.right {
+.feedback .note:nth-child(even) {
   margin-left: 10%;
   margin-bottom: 10px;
 }
+
+.note:nth-child(1), .note:nth-child(5) {
+  background-color: #04deee;
+}
+
+.note:nth-child(2), .note:nth-child(6)  {
+  background-color: #F5DD61;
+}
+
+.note:nth-child(3), .note:nth-child(7) {
+  background-color: #DC84F3;
+}
+
+.note:nth-child(4), .note:nth-child(8) {
+  background-color: #F266AB;
+}
+
+
+.rephrase {
+  padding: 15px 15px;
+  border-radius: 10px;
+  font-size: 13px;
+  text-align: center;
+  margin-bottom: 10px; 
+  background-color: #c0cecf;
+}
+
+.note {
+  padding: 15px 15px;
+  border-radius: 10px;
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 10px; 
+  background-color: #04deee;
+}
+
 
 .title {
   background-color: #333;
@@ -112,23 +143,17 @@
 
 .rewrite {
   grid-column: 4/5;
-  grid-row: 2 / span 999;
   background-color: #F1EB90;
   padding: 20px;
 }
 
 .paragraph {
-  grid-column: 2/3;
-  grid-row: 2 / span 999;
+  grid-column: 2/3;  
   background-color: #F3B664;
   padding: 20px;
   padding-bottom: 40px;
 }
 
-.loading-size-section {
-  padding: 0;
-  height: 600px;
-}
 
 .app .main-review  {
   max-width: 80%;

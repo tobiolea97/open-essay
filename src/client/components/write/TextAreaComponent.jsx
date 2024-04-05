@@ -17,6 +17,7 @@ export const TextAreaComponent = () => {
     }, []);
 
     const handleClick = async (event) => {
+        debugger;
         event.preventDefault();
         if(inputValue === "" || inputValue === undefined || wordCount < 4 || paragraphCount < 1)
         {
@@ -25,7 +26,7 @@ export const TextAreaComponent = () => {
         }
         // futher validation
 
-        dispatch(storeMessage(inputValue));
+        dispatch(storeMessage(inputValue.split(/\n\n/)));
         // dispatch(setStatus("processing")); this is not neccesary because the status is set in the reducer
         navigate("/review");
         await dispatch(review(inputValue));
