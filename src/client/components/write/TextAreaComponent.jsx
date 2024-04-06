@@ -11,6 +11,10 @@ export const TextAreaComponent = () => {
     const [wordCount, setWordCount] = useState(0);
     const [paragraphCount, setParagraphCount] = useState(0);
     const [error, setError] = useState("");
+
+    const goBack = () => {
+        navigate("/home");
+    }
     
     useEffect(() => {
         setError("");
@@ -55,6 +59,7 @@ export const TextAreaComponent = () => {
             <div className="control-panel">
                 <span>{error}</span>
                 <em>{wordCount} words / {paragraphCount} paragraphs</em>
+                <a onClick={goBack}>Go back</a>
                 <button className="button" onClick={handleClick}>Submit</button>
             </div>
         </>

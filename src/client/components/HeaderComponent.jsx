@@ -11,7 +11,10 @@ export const HeaderComponent = () => {
 
     const onClickLogOut = () => {
         dispatch(logout());
-        navigate(`/login`);
+        // go to login using windows.location
+        // navigate(`/login`);
+        window.location.href = '/login';
+        
     };
 
     return (
