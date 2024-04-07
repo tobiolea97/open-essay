@@ -4,7 +4,7 @@ import fs from "fs";
 const require = createRequire(import.meta.url);
 require('dotenv').config();
 
-const endpoints = (app) => {
+const openAiEndpoints = (app) => {
 
     const openai = new OpenAI({
         apiKey: process.env.OPEN_AI_API_KEY,
@@ -155,4 +155,4 @@ function parseRewrite(file) {
   return paragraphs;
 }
 
-export default endpoints;
+export default openAiEndpoints;
