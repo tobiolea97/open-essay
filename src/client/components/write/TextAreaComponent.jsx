@@ -2,6 +2,7 @@ import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import React, { useEffect, useState } from 'react';
 import { storeMessage, setStatus } from "../../data/api/OpenAiReducer";
+import { saveWriting } from "../../data/api/DataReducer";
 import { review } from "../../data/api/OpenAiReducer";
 
 export const TextAreaComponent = () => {
@@ -11,6 +12,8 @@ export const TextAreaComponent = () => {
     const [wordCount, setWordCount] = useState(0);
     const [paragraphCount, setParagraphCount] = useState(0);
     const [error, setError] = useState("");
+
+    const currentAssignment = useSelector((state) => state.data.currentAssignment);
 
     const goBack = () => {
         navigate("/home");
@@ -28,11 +31,15 @@ export const TextAreaComponent = () => {
             return;
         }
         // futher validation
-
+        
         dispatch(storeMessage(inputValue.split(/\n\n/)));
         // dispatch(setStatus("processing")); this is not neccesary because the status is set in the reducer
         navigate("/review");
-        await dispatch(review(inputValue));
+        await dispatch(review({
+            "inputValue": inputValue,
+            "email": "tobiolea97@gmail.com",
+            "assignmentId": currentAssignment.id
+        }));
     }
 
     const handleChange = (event) => {

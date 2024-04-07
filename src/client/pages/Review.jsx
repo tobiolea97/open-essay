@@ -6,12 +6,7 @@ import GridHeaderComponent from '../components/review/GridHeaderComponent';
 
 
 function Review() {
-  const openai = useSelector((state) => state.OpenAi)
-
-  // useEffect(() => {
-  //   if (reviewStatus === "succeeded") {
-  //   }
-  // }, [reviewStatus]);
+  const openai = useSelector((state) => state.OpenAi);
 
   return (
     <>

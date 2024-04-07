@@ -1,0 +1,43 @@
+[{
+  "_id": {
+    "$oid": "6612fd209d5bfacb9dfeb893"
+  },
+  "id": "1",
+  "assignment": [
+    "Your principal has suggested a project in which groups of students spend three days on a survival exercise, living in a remote place where they have to organise their own shelter, food and heat. You have made the notes below",
+    [
+      "self-sufficiency",
+      "insight into different living conditions",
+      "teamwork"
+    ],
+    "Opinions expressed by students:",
+    [
+      "it could be dangerous",
+      "three days is too short to gain insight",
+      "participants would need considerable preparation"
+    ],
+    "Write an essay discussing two of the arguments in your notes. You should explain which of the arguments you think is more important and provide reasons to support your opinion."
+  ],
+  "level": "C1",
+  "writingArea": "ESSAY",
+  "name": "Survival Exercise"
+},
+{
+  "_id": {
+    "$oid": "66130c019d5bfacb9dfeb8a1"
+  },
+  "id": "2",
+  "assignment": [
+    "In your English class you have been talking about wildlife conservation. Now your English teacher has asked you to write an Essay",
+    "Write an essay using all the notes and give reasons for your point of view",
+    "Not enough is being done to protect endangered animals. Do you agree?",
+    [
+      "which animals are under threat",
+      "why do we need to protect these animals",
+      "... (your own idea)"
+    ]
+  ],
+  "level": "B2",
+  "writingArea": "ESSAY",
+  "name": "Survival Exercise"
+}]

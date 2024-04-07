@@ -59,6 +59,19 @@ export const getAssignment = createAsyncThunk('assignment/get', async (params) =
     }
 );
 
+export const saveWriting = createAsyncThunk('writing/save', async (params) => {
+    let response;
+    try {
+        response = await fetch('http://localhost:3000/data/saveWriting', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(params)
+        });
+    } catch (error) {
+        throw new Error('Server error. Try again later.');
+    }
+});
+
 const dataSlice = createSlice({
     name: 'review',
     initialState,

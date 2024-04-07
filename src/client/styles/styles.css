@@ -255,6 +255,13 @@
   grid-column-gap: 20px;
 }
 
+.go-home {
+  display: sticky;
+  position: absolute;
+  top: 100px;
+  left: 20px;
+}
+
 .main-review {
   grid-area: original-copy;
   padding: 25px 25px 25px 25px;

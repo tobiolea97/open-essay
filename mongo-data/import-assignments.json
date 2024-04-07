@@ -1,0 +1,66 @@
+[
+  {
+    "id": "1",
+    "assignment": [
+      "In your English class you have been talking about wildlife conservation. Now your English teacher has asked you to write an essay",
+      "Write an essay using all the notes and give reasons for your point of view",
+      "Not enough is being done to protect endangered animals. Do you agree?",
+      [
+        "which animals are under threat",
+        "why do we need to protect these animals",
+        "... (your own idea)"
+      ]
+    ],
+    "level": "B2",
+    "writingArea": "ESSAY",
+    "name": "Wildlife conservation"
+  },
+  {
+    "id": "2",
+    "assignment": [
+      "In your English class you have been talking about the benefits of regular exercise. Now your teacher has asked you to write an essay.",
+      "Write an essay using all the notes and give reasons for your point of view",
+      "Should people who are studying or working hard take regular exercise?",
+      [
+        "lifestyle",
+        "health benefits",
+        "... (your own idea)"
+      ]
+    ],
+    "level": "B2",
+    "writingArea": "ESSAY",
+    "name": "Should people do more exercise?"
+  },
+  {
+    "id": "3",
+    "assignment": [
+      "In your English class you have been talking about jobs and salaries. Now your teacher has asked you to write an essay.",
+      "Write an essay using all the notes and give reasons for your point of view",
+      "Compared to people in other jobs, sportspeople are paid too much for what they do. Do you agree?",
+      [
+        "which jobs are important in society",
+        "why some sportspeople are paid a lot of money",
+        "... (your own idea)"
+      ]
+    ],
+    "level": "B2",
+    "writingArea": "ESSAY",
+    "name": "Are sportpeople paid too much?"
+  },
+  {
+    "id": "4",
+    "assignment": [
+      "In your English class you have been talking about urban transport. Now your English teacher has asked you to write an Essay",
+      "Write an essay using all the notes and give reasons for your point of view",
+      "The only way to solve traffic problems in cities is to improve public transport. Do you agree?",
+      [
+        "problems with public transport",
+        "limiting the use of private cars",
+        "... (your own idea)"
+      ]
+    ],
+    "level": "B2",
+    "writingArea": "ESSAY",
+    "name": "How to solve traffic problems?"
+  }
+]

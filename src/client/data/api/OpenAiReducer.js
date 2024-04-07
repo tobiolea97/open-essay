@@ -7,13 +7,13 @@ const initialState = {
     error: ""
 };
 
-export const review = createAsyncThunk('/essay/review', async (production) => {
+export const review = createAsyncThunk('/essay/review', async (params) => {
         let response;
         let request = {
-            "message": production
+            "message": params.inputValue
         };
         try {
-            response = await fetch('http://localhost:3000/review', {
+            response = await fetch('http://localhost:3000/review/test', {
             //response = await fetch('http://localhost:3000/review/this/is/the/paid/version/bro', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -26,7 +26,26 @@ export const review = createAsyncThunk('/essay/review', async (production) => {
             throw new Error('Server error. Try again later.');
         }
 
-        return response.json();
+        // get feedback from response.json()[0]
+        let feedback = await response.json();
+        
+        let writing = {
+            "writing": params.inputValue,
+            "email": params.email,
+            "assignmentId": params.assignmentId,
+            "feedback": feedback
+        }
+        try {
+            await fetch('http://localhost:3000/data/saveWriting', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(writing)
+            });
+        } catch (error) {
+            throw new Error('Server error. Try again later.');
+        }
+        
+        return feedback;
     }
 );
 
