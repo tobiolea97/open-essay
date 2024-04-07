@@ -14,15 +14,21 @@ export const HeaderComponent = () => {
         // go to login using windows.location
         // navigate(`/login`);
         window.location.href = '/login';
-        
     };
+
+    const onClickHome = () => {
+        navigate(`/home`);
+    }
+
 
     return (
         <>
             <header>
                 <div className='header'>
-                    <img src='gpt-logo.png' alt='GPT-3' />
-                    <h1>Open Essay</h1>
+                    <a onClick={onClickHome}>
+                        <img src='gpt-logo.png' alt='GPT-3' />
+                        <h1>Open Essay</h1>
+                    </a>
                 </div>
                 { auth.token &&
                     <a className='logout' onClick={onClickLogOut}>
