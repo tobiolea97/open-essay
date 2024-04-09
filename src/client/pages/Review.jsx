@@ -35,6 +35,7 @@ function Review() {
         <>
           <div className="main-review">
             <div className="instructions-review">
+              <h2>Assignment</h2>
               {
                   data.currentReview.assignment.map((element, index) => (
                       typeof element === 'string'

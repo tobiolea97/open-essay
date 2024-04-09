@@ -6,19 +6,15 @@ import '../../styles/home.css';
 export const WritingHistoryComponent = () => {
     
     const navigate = useNavigate();
-    const writings = useSelector((state) => state.data.writings)
-
-    const startWriting = () => {
-        const level = document.getElementById('level-option').value;
-        const task = document.getElementById('task-option').value;
-        navigate(`/write?level=${level}&task=${task}`);
-    }
+    const writings = useSelector((state) => state.data.writings);
 
     return (
       <>
-        <h2>Your writing history</h2>
+        { writings && writings.length > 0 &&
+            <h2>Your writing history</h2>
+        }
         <div className='history-panel'>
-            {writings.map((writing, index) => {
+            {writings && writings.map((writing, index) => {
                 return (
                     <div className='history-item' key={index}>
                         <p>{writing.level}</p>
