@@ -1,9 +1,12 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { getWriting } from '../../../server/controller/controller';
 
 const initialState = {
     levels: null,
     writingAreas: null,
+    writing: null,
     currentAssignment: null,
+    currentReview: null,
     status: "idle",
     error: ""
 };
@@ -70,6 +73,33 @@ export const saveWriting = createAsyncThunk('writing/save', async (params) => {
     } catch (error) {
         throw new Error('Server error. Try again later.');
     }
+    return response.json();
+});
+
+export const getReview = createAsyncThunk('review/get', async(params) => {
+    let response;
+    try {
+        response = await fetch('http://localhost:3000/data/getWriting?assignment=' + params.assignmentId, {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' }
+        });
+    } catch (error) {
+        throw new Error('Server error. Try again later.');
+    }
+    return response.json();
+});
+
+export const getWritings = createAsyncThunk('writings/get', async(params) => {
+    let response;
+    try {
+        response = await fetch('http://localhost:3000/data/getWritings', {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' }
+        });
+    } catch (error) {
+        throw new Error('Server error. Try again later.');
+    }
+    return response.json();
 });
 
 const dataSlice = createSlice({
@@ -114,7 +144,30 @@ const dataSlice = createSlice({
             .addCase(getAssignment.rejected, (state, action) => {
                 state.status = 'failed';
                 state.error = action.error.message;
-            });
+            })
+            .addCase(getReview.pending, (state) => {
+                state.status = 'loading';
+            })
+            .addCase(getReview.fulfilled, (state, action) => {
+                state.currentReview = action.payload;
+                state.status = 'succeeded';
+            })
+            .addCase(getReview.rejected, (state, action) => {
+                state.status = 'failed';
+                state.error = action.error.message;
+            })
+            .addCase(getWritings.pending, (state) => {
+                state.status = 'loading';
+            })
+            .addCase(getWritings.fulfilled, (state, action) => {
+                state.writings = action.payload;
+                state.status = 'succeeded';
+            })
+            .addCase(getWritings.rejected, (state, action) => {
+                state.status = 'failed';
+                state.error = action.error.message;
+            })
+
     }
 });
 

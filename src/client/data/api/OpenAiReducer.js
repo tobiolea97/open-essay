@@ -9,24 +9,23 @@ const initialState = {
 
 export const review = createAsyncThunk('/essay/review', async (params) => {
         let response;
-        let request = {
-            "message": params.inputValue
-        };
         try {
             response = await fetch('http://localhost:3000/review/test', {
             //response = await fetch('http://localhost:3000/review/this/is/the/paid/version/bro', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(request)
+                body: JSON.stringify({
+                    "message": params.inputValue
+                })
             });
         } catch (error) {
             throw new Error('Server error. Try again later.');
         }
+
         if (!response.ok) {
             throw new Error('Server error. Try again later.');
         }
 
-        // get feedback from response.json()[0]
         let feedback = await response.json();
         
         let writing = {
@@ -44,8 +43,7 @@ export const review = createAsyncThunk('/essay/review', async (params) => {
         } catch (error) {
             throw new Error('Server error. Try again later.');
         }
-        
-        return feedback;
+        return params.assignmentId;
     }
 );
 
@@ -57,7 +55,7 @@ const reviewSlice = createSlice({
             state.sentMessage = action.payload;
         },
         setStatus: (state, action) => {
-            status = action.payload;
+            state.status = action.payload;
         }
     },
     extraReducers: (builder) => {
@@ -66,7 +64,8 @@ const reviewSlice = createSlice({
                 state.status = 'loading';
             })
             .addCase(review.fulfilled, (state, action) => {
-                state.writingReview = applyStylesToErrors(action.payload);
+                //state.writingReview = applyStylesToErrors(action.payload);
+                //state.currentAssignment = action.payload;
                 state.status = 'succeeded';
             })
             .addCase(review.rejected, (state, action) => {

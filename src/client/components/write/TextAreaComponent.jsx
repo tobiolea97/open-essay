@@ -5,6 +5,7 @@ import { storeMessage, setStatus } from "../../data/api/OpenAiReducer";
 import { saveWriting } from "../../data/api/DataReducer";
 import { review } from "../../data/api/OpenAiReducer";
 
+
 export const TextAreaComponent = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -30,16 +31,14 @@ export const TextAreaComponent = () => {
             setError("Please, write a at least 100 words and 3 paragraphs.");
             return;
         }
-        // futher validation
-        
         dispatch(storeMessage(inputValue.split(/\n\n/)));
-        // dispatch(setStatus("processing")); this is not neccesary because the status is set in the reducer
-        navigate("/review");
         await dispatch(review({
             "inputValue": inputValue,
             "email": "tobiolea97@gmail.com",
             "assignmentId": currentAssignment.id
         }));
+        
+        navigate("/review?assignment=" + currentAssignment.id);
     }
 
     const handleChange = (event) => {

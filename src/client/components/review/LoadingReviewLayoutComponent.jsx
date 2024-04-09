@@ -8,9 +8,6 @@ export const LoadingReviewLayoutComponent = () => {
         <main className="main-review">
             <GridHeaderComponent />
             <div className="paragraph">
-              {openAiSelector.sentMessage.map((message, index) => (
-                <p key={index}>{message}</p>
-              ))}
             </div>
             <div className="feedback">
             </div>

@@ -1,6 +1,6 @@
 import {useDispatch} from "react-redux";
 import { useEffect } from "react";
-import { getLevels, getWritingAreas } from "../data/api/DataReducer";
+import { getLevels, getWritingAreas, getWritings } from "../data/api/DataReducer";
 
 import StartWritingPanelComponent from "../components/home/StartWritingPanelComponent";
 import WritingHistoryComponent from "../components/home/WritingHistoryComponent";
@@ -12,6 +12,7 @@ function Home() {
   useEffect(() => {
     dispatch(getLevels());
     dispatch(getWritingAreas());
+    dispatch(getWritings());
   }, []);
   
   return (

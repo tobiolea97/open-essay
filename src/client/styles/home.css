@@ -50,6 +50,7 @@ h2 {
 
 .writing-panel {
     display: grid;
+    grid-template-columns: 3fr 3fr 1fr;
     grid-template-areas: "level-label task-label ." "level-select task-select start-writting-btn";
     grid-gap: 10px;
 }

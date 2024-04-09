@@ -244,29 +244,37 @@
   padding: 10px 20px;
 }
 
-
-.app .main-review  {
+.main-review {
+  display:flex;
+  flex-flow: column wrap;
   max-width: 80%;
-  margin: 50px auto;
+  margin: 25px auto;
+}
+
+.instructions-review {
+  background-color: #F1EB90;
+  padding: 10px 25px 15px 25px;
+  border-radius: 10px;
+  font-size: 16px;
+  width: 100%;
+}
+
+.review-grid  {
   padding: 0;
   display: grid;
   grid-template-columns: auto 8fr 8fr 8fr;
-  grid-template-rows: repeat(auto-fill, minmax(auto, 1fr));
+  grid-template-rows: 1fr repeat(auto-fill, minmax(auto, 1fr));
   grid-column-gap: 20px;
-}
-
-.go-home {
-  display: sticky;
-  position: absolute;
-  top: 100px;
-  left: 20px;
-}
-
-.main-review {
   grid-area: original-copy;
   padding: 25px 25px 25px 25px;
   border-radius: 10px;
   font-size: 16px;
+}
+
+.go-home {
+  position: absolute;
+  top: 90px;
+  left: 25px;
 }
 
 .main-review p:nth-child(odd) {
@@ -447,3 +455,9 @@
 main {
   display: flex;
 }
+
+.go-home img {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+} 

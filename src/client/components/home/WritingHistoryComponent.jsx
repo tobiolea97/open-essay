@@ -1,10 +1,12 @@
 import React from 'react';
+import {useSelector} from 'react-redux';
 import {useNavigate} from 'react-router-dom';
 import '../../styles/home.css';
 
 export const WritingHistoryComponent = () => {
     
     const navigate = useNavigate();
+    const writings = useSelector((state) => state.data.writings)
 
     const startWriting = () => {
         const level = document.getElementById('level-option').value;
@@ -16,24 +18,16 @@ export const WritingHistoryComponent = () => {
       <>
         <h2>Your writing history</h2>
         <div className='history-panel'>
-            <div className='history-item'>
-                <p>B2 First</p>
-                <p>Essay</p>
-                <p>Wildlife conservation</p>
-                <button>View</button>
-            </div>
-            <div className='history-item'>
-                <p>B2 First</p>
-                <p>Essay</p>
-                <p>TV shows</p>
-                <button>View</button>
-            </div>
-            <div className='history-item'>
-                <p>B2 First</p>
-                <p>Essay</p>
-                <p>Wildlife conservation</p>
-                <button>View</button>
-            </div>
+            {writings.map((writing, index) => {
+                return (
+                    <div className='history-item' key={index}>
+                        <p>{writing.level}</p>
+                        <p>{writing.writingArea}</p>
+                        <p>{writing.name}</p>
+                        <button onClick={() => navigate(`/review?assignment=${writing.id}`)}>View</button>
+                    </div>
+                )
+            })}
         </div>
       </>
     )

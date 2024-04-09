@@ -40,8 +40,6 @@ export const getAssignment = async (req, res) => {
 
 export const saveWriting = async (req, res) => {
     const { writing, email, assignmentId, feedback  } = req.body;
-    console.log("body");
-    console.log(req.body);
     try {
         const user = await userSchema.findOne({email});
         // if writings property does not exist, create it
@@ -49,7 +47,7 @@ export const saveWriting = async (req, res) => {
             user.writings = [];
         }
         user.writings.push({
-                assingmentId: assignmentId,
+                assignmentId: assignmentId,
                 writing: writing,
                 feedback: feedback
             });
@@ -61,5 +59,38 @@ export const saveWriting = async (req, res) => {
     }
 }
 
+export const getWriting = async (req, res) => {
+    const { assignment } = req.query;
+    try {
+        const user = await userSchema.findOne({email: "tobiolea97@gmail.com"});
+        const writing = user.writings.find(writing => writing.assignmentId === assignment);
+        
+        const assignmentDocument = await assignmentSchema.findOne({id: assignment});
+        
+        writing.assignment = assignmentDocument.assignment;
 
+        res.status(200).json(writing);
+    }
+    catch (error) {
+        res.status(404).json({ message: error.message });
+    }
+}
 
+export const getWritings = async (req, res) => {
+    try {
+        const user = await userSchema.findOne({email: "tobiolea97@gmail.com"});
+        const assignments = await assignmentSchema.find();
+
+        const assignmentIds = user.writings.map(writing => writing.assignmentId);
+        const response = [];
+        assignmentIds.forEach(assignmentId => {
+            const assignment = assignments.find(assignment => assignment.id === assignmentId);
+            response.push(assignment);
+        });
+
+        res.status(200).json(response);
+    }
+    catch (error) {
+        res.status(404).json({ message: error.message });
+    }
+};
