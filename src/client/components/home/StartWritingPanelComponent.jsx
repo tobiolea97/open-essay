@@ -15,7 +15,7 @@ export const StartWritingPanelComponent = () => {
     }
 
     return (
-      <>
+      <div class="start-writing-wrapper">
         <h2>Do you want to write?</h2>
         <div className='writing-panel'>
             <label id="level-label">Choose a level</label>
@@ -36,7 +36,7 @@ export const StartWritingPanelComponent = () => {
             </select>
             <button id="start-writting-btn" onClick={startWriting}>Start writing</button>
         </div>
-      </>
+      </div>
     )
 }
 
