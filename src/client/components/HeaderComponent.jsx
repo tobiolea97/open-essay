@@ -20,21 +20,25 @@ export const HeaderComponent = () => {
         navigate(`/home`);
     }
 
-
     return (
         <>
             <header>
-                <div className='header'>
-                    <a onClick={onClickHome}>
-                        <img src='gpt-logo.png' alt='GPT-3' />
+                <div className="header-wrapper">
+                    <div className='logo'>
+                        <a onClick={onClickHome}>
+                            <img class="img-50" src='gpt-logo.png' alt='GPT-3' />
+                        </a>
                         <h1>Open Essay</h1>
-                    </a>
+                    </div>
+                    { auth.token &&
+                        <div class="logout">
+                            <p>Welcome, Tobias</p>
+                            <a className='logout' onClick={onClickLogOut}>
+                                <img className="img-30" src='logout.png' alt='GPT-3' />
+                            </a>
+                        </div>
+                    }
                 </div>
-                { auth.token &&
-                    <a className='logout' onClick={onClickLogOut}>
-                        <img className="logout" src='logout.png' alt='GPT-3' />
-                    </a>
-                }
             </header>
         </>
     )
