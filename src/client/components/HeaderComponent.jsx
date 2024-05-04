@@ -34,11 +34,19 @@ export const HeaderComponent = () => {
                         <div class="logout">
                             <p>Welcome, Tobias</p>
                             <a className='logout' onClick={onClickLogOut}>
-                                <img className="img-30" src='logout.png' alt='GPT-3' />
+                                <img className="img-30" src='logout-white.png' alt='GPT-3' />
                             </a>
                         </div>
                     }
                 </div>
+                { auth.token &&
+                    <div class="profile-panel-sm">
+                        <p>Welcome, Tobias</p>
+                        <a className='logout' onClick={onClickLogOut}>
+                            <img className="img-30" src='logout-black.png' alt='GPT-3' />
+                        </a>
+                    </div>
+                }
             </header>
         </>
     )
