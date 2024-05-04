@@ -7,7 +7,7 @@ body {
   display: flex;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #D9D7D2;
+  background-color: var(--grey-3);
   font-family: Montserrat, Verdana;
 }
 
