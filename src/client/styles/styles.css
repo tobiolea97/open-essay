@@ -10,6 +10,10 @@
   --grey-3: #D9D7D2;
   --white-1: #EEE;
   --white-2: #FFF;
+  --sm: 500px;
+  --md: 600px;
+  --lg: 800px;
+  --xl: 1000px;
 }
 
 
@@ -27,6 +31,14 @@ html {
   padding: 0;
 }
 
+button {
+  display: block;
+  font-size: 16px;
+  padding: .6rem 1.4rem;
+  border: none;
+  border-radius: .5rem;
+}
+
 .img-50 {
   width: 50px;
   height: 50px;
@@ -40,6 +52,38 @@ html {
 .img-30 {
   width: 30px;
   height: 30px;
+}
+
+.bg-black-1 {
+  background-color: var(--black-2);
+}
+
+.bg-black-2 {
+  background-color: var(--black-2);
+}
+
+.bg-black-3 {
+  background-color: var(--black-3);
+}
+
+.bg-grey-1 {
+  background-color: var(--grey-1);
+}
+
+.bg-grey-2 {
+  background-color: var(--grey-2);
+}
+
+.bg-grey-3 {
+  background-color: var(--grey-3);
+}
+
+.color-white-1 {
+  color: var(--white-1);
+}
+
+.color-white-2 {
+  color: var(--white-2);
 }
 
 /**********************************************/
@@ -91,13 +135,13 @@ header .profile-panel-sm {
   justify-content: space-between;
   padding: 1rem 3.2rem;
   align-items: center;
-  background-color: var(--white-1);
+  background-color: var(--black-2);
   border-bottom: 1px solid var(--grey-1);
   box-shadow: 0 5px 10px var(--grey-1);
 }
 
 header .profile-panel-sm p {
-  color: var(--black-2);
+  color: var(--white-1);
   font-size: 1.8rem;
   font-weight: 500;
 }
@@ -119,43 +163,101 @@ header .profile-panel-sm p {
 /*                  home                      */
 /**********************************************/
 
-.main-home {
-  max-width: 60%;
-  margin: 20px auto;
+main {
   display: flex;
-  flex-flow: column wrap;
-  grid-column-gap: 20px;
-  grid-row-gap: 5px;  
+  flex-direction: column;
+  align-items: center;
+  padding: 0 3.2rem;
+  height: 100vh;
 }
 
-
-/*
-* LOGIN
-*/
-/* .logout img:hover {
-  transform: scale(1.2);
-}
-
-.logout img {
-  margin-left: 20px;
-  width: 30px;
-  height: 30px;
-}
-
-.logout p {
-  color: white;
-  font-size: 1em;
-  align-self: center;
-}
-
-.logout {
-  grid-area: logout;
-  align-self: center;
-  justify-self: center;
-  cursor: pointer;
+main > div {
   display: flex;
-} */
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+}
 
+main h2 {
+  font-size: 2.4rem;
+  margin: 2rem 0 4rem 0;
+}
+
+
+/**********************************************/
+/*            start writing section           */
+/**********************************************/
+.start-writing-wrapper {
+  display: none;
+}
+
+/**********************************************/
+/*              history section               */
+/**********************************************/
+.writing-history-wrapper .history-panel {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.8rem;
+}
+
+.writing-history-wrapper .history-panel div {
+  display: grid;
+  grid-template-areas: "title button";
+  grid-template-columns: 8fr 1fr;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--grey-2);
+  column-gap: 1.8rem;
+}
+
+.writing-history-wrapper .history-panel div:nth-child(1) {
+  border-bottom: 2px solid var(--grey-1);
+}
+
+.writing-history-wrapper .history-panel div:nth-child(1) p {
+  font-weight: 900;
+  font-size: large;
+}
+
+.writing-history-wrapper .history-panel div p {
+  align-self: center;
+  justify-self: start;
+  font-size: 1.6rem;
+}
+
+.writing-history-wrapper .history-panel div p:nth-child(1) {
+  display: none;
+}
+
+.writing-history-wrapper .history-panel div p:nth-child(2) {
+  display: none;
+}
+
+@media screen and (min-width: 500px) {
+  .writing-history-wrapper .history-panel div p:nth-child(1) {
+    display: block;
+  }
+  .writing-history-wrapper .history-panel div {
+      grid-template-areas: "level title button";
+      grid-template-columns: 2fr 8fr 1fr;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .writing-history-wrapper .history-panel div p:nth-child(2) {
+    display: block;
+  }
+  .writing-history-wrapper .history-panel div {
+      grid-template-areas: "level task title button";
+      grid-template-columns: 2fr 2fr 8fr 1fr;
+  }
+}
+
+
+/**********************************************/
+/*                   login                    */
+/**********************************************/
 
 .oauth-background {
   width: 100%;
