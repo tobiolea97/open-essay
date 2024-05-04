@@ -12,11 +12,10 @@ const router = createBrowserRouter([
       element: <Root />,
       children: [
         { path: "login", element: <Login /> },
-        { path: '/', element: <PrivateRoute element="/home" /> },
-        { path: "home", element: <PrivateRoute element={<Home />} />},
         { path: "write", element: <PrivateRoute element={<Write />} /> },
         { path: "review", element: <PrivateRoute element={<Review />} /> },
-        { path: "*", element: <PrivateRoute element="/home" />}
+        { path: '/', element: <PrivateRoute element={<Home />} /> },
+        { path: "*", element: <PrivateRoute element={<Home />} />}
       ],
     },
   ]);
