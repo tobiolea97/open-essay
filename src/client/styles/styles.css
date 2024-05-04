@@ -1,3 +1,92 @@
+/**********************************************/
+/*                  variables                 */
+/**********************************************/
+:root {
+  --black-1: #111;
+  --black-2: #333;
+  --black-3: #555;
+  --grey-1: #AAA;
+  --grey-2: #CCC;
+  --grey-3: #DDD;
+  --white-1: #EEE;
+  --white-2: #FFF;
+}
+
+
+/**********************************************/
+/*                   base                     */
+/**********************************************/
+html {
+  touch-action: manipulation;
+  font-size: 62.5%;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.img-50 {
+  width: 50px;
+  height: 50px;
+}
+
+.img-40 {
+  width: 40px;
+  height: 40px;
+}
+
+.img-30 {
+  width: 30px;
+  height: 30px;
+}
+
+/**********************************************/
+/*                   navbar                   */
+/**********************************************/
+header .header-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 1rem 3.2rem;
+  background-color: var(--black-1);
+}
+
+header .header-wrapper .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header .header-wrapper .logout {
+  display: none;
+  align-items: center;
+}
+
+header .header-wrapper .logo h1 {
+  color: var(--white-1);
+  margin-left: 2rem;
+}
+
+header .header-wrapper .logout p {
+  color: var(--white-1);
+  font-size: 1.6rem;
+  margin-right: 2rem;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 500px) {
+  header .header-wrapper {
+    justify-content: space-between;
+  }
+
+  header .header-wrapper .logout {
+    display: flex;
+    align-items: center;
+  }
+}
+
 /*
 * HOME
 */
@@ -15,7 +104,7 @@
 /*
 * LOGIN
 */
-.logout img:hover {
+/* .logout img:hover {
   transform: scale(1.2);
 }
 
@@ -37,7 +126,7 @@
   justify-self: center;
   cursor: pointer;
   display: flex;
-}
+} */
 
 
 .oauth-background {
@@ -301,17 +390,17 @@
 
 .app {
   width: 100%;
-  min-width: 900px;
+  /* min-width: 900px; */
 }
 
-.app header {
+/* .app header {
   display: grid;
   grid-template-columns: 1fr 5fr 1fr;
   grid-template-areas: ". title logout";
   background-color: black;
-}
+} */
 
-.app .header a:hover {
+/* .app .header a:hover {
   cursor: pointer;
 }
 
@@ -340,7 +429,7 @@
   width: 50px;
   height: 50px;
   margin-right: 20px;
-}
+} */
 
 .app .main-write  {
   max-width: 80%;
