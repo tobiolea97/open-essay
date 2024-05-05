@@ -46,6 +46,7 @@ select {
   width: 100%;
   border-radius: .3em;
   border: none;
+  background-color: var(--white-1);
 }
 
 .img-50 {
@@ -200,7 +201,10 @@ main h2 {
   display: flex;
   flex-direction: column;
   row-gap: 1.8rem;
-  margin: 0 auto;
+  margin: 5rem 0;
+  padding: 2rem 2rem 4rem 2rem;
+  border-radius: 1rem;
+  background-color: var(--grey-2);
 }
 
 .start-writing-wrapper .writing-panel {
@@ -243,6 +247,39 @@ main h2 {
 .start-writing-wrapper .writing-panel div:nth-child(5){
   grid-area: start-writting-btn;
   justify-self: end;
+}
+
+@media screen and (min-width: 500px) {
+  .start-writing-wrapper .writing-panel {
+    grid-template-columns: 6fr 6fr;
+    grid-template-areas:  "level-label task-label"
+                        "level-select task-select"
+                        ". start-writting-btn";
+  }
+  .start-writing-wrapper .writing-panel div {
+    justify-content: start;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .start-writing-wrapper .writing-panel {
+    grid-template-columns: 1fr 6fr 1fr 6fr;
+    grid-template-areas: "level-label level-select task-label task-select"
+                        ". . .  start-writting-btn";
+  }
+  .start-writing-wrapper .writing-panel div {
+    justify-content: start;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .start-writing-wrapper .writing-panel {
+    grid-template-columns: 1fr 6fr 1fr 6fr;
+    grid-template-areas: "level-label level-select task-label task-select start-writting-btn";
+  }
+  .start-writing-wrapper .writing-panel div {
+    justify-content: start;
+  }
 }
 
 /**********************************************/

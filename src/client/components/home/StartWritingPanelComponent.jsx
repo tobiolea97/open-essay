@@ -43,7 +43,7 @@ export const StartWritingPanelComponent = () => {
                 </select>
             </div>
             <div>
-                <button id="start-writting-btn" onClick={startWriting}>Start writing</button>
+                <button class="bg-black-1 color-white-1" onClick={startWriting}>Start writing</button>
             </div>
         </div>
       </div>
