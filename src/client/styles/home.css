@@ -1,32 +1,4 @@
-/* .main-home .history-panel .history-item button {
-    width: auto;
-    padding: 10px;
-}
-
-.history-item p {
-    align-self: start;
-    justify-self: start;
-}
-
-.history-item {
-    display: grid;
-    grid-template-areas: "level task title button";
-    grid-template-columns: 2fr 2fr 8fr 1fr;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-}
-
-.history-panel {
-    display: flex;
-    flex-direction: column;
-}
-
-h2 {
-    margin-bottom: 30px;
-    align-self: center;
-}
+/* 
 
 #level-option {
     grid-area: level-select;
