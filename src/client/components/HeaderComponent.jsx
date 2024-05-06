@@ -26,12 +26,12 @@ export const HeaderComponent = () => {
                 <div className="header-wrapper">
                     <div className='logo'>
                         <a onClick={onClickHome}>
-                            <img class="img-50" src='gpt-logo.png' alt='GPT-3' />
+                            <img className="img-50" src='gpt-logo.png' alt='GPT-3' />
                         </a>
                         <h1>Open Essay</h1>
                     </div>
                     { auth.token &&
-                        <div class="logout">
+                        <div className="logout">
                             <p>Welcome, Tobias</p>
                             <a className='logout' onClick={onClickLogOut}>
                                 <img className="img-30" src='logout-white.png' alt='GPT-3' />
@@ -40,7 +40,7 @@ export const HeaderComponent = () => {
                     }
                 </div>
                 { auth.token &&
-                    <div class="profile-panel-sm">
+                    <div className="profile-panel-sm">
                         <p>Welcome, Tobias</p>
                         <a className='logout' onClick={onClickLogOut}>
                             <img className="img-30" src='logout-white.png' alt='GPT-3' />
