@@ -10,6 +10,8 @@
   --grey-3: #D9D7D2;
   --white-1: #EEE;
   --white-2: #FFF;
+  --yellow: #f5ec77;
+  --red: #df5748;
   --sm: 500px;
   --md: 600px;
   --lg: 800px;
@@ -178,7 +180,7 @@ main {
   flex-direction: column;
   align-items: center;
   padding: 0 3.2rem;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 main > div {
@@ -343,6 +345,97 @@ main h2 {
       grid-template-areas: "level task title button";
       grid-template-columns: 2fr 2fr 8fr 1fr;
   }
+}
+
+
+/**********************************************/
+/*               write page                   */
+/**********************************************/
+.main-write {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 3.2rem;
+  margin-bottom: 3rem;
+}
+
+.instructions-wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.8rem;
+  margin: 3rem 0;
+  padding: 2rem 2rem 2rem 2rem;
+  border-radius: 1rem;
+  background-color: var(--yellow);
+  max-width: 90rem;
+}
+
+.instructions-wrapper h2 {
+  font-size: 2.4rem;
+  margin: 1rem 0 1rem 0;
+}
+
+.instructions-wrapper p {
+  font-size: 1.6rem;
+}
+
+.instructions-wrapper li {
+  margin-left: 2rem;
+}
+
+.text-area-wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 90rem;
+  width: 100%;
+}
+
+.text-area-wrapper textarea {
+  width: 100%;
+  height: 60rem;
+  padding: 1rem;
+  font-size: 1.6rem;
+  border-radius: 1rem;
+  border: 1px solid var(--grey-1);
+}
+
+.control-panel-wrapper {
+  max-width: 90rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-areas: "error error error"
+                       "counter goback submit";
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-bottom: 4rem;
+}
+
+.control-panel-wrapper span {
+  font-size: 1.6rem;
+  padding: .6rem 1.4rem;
+  color: var(--red);
+  grid-area: error;
+}
+
+.control-panel-wrapper em {
+  font-size: 1.2rem;
+  grid-area: counter;
+}
+
+.control-panel-wrapper a {
+  font-size: 1.6rem;
+  margin-right: 1rem;
+  text-align: center;
+  color: var(--black-1);
+  grid-area: goback;
+}
+
+.control-panel-wrapper button {
+  font-size: 1.6rem;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  grid-area: submit;
 }
 
 
@@ -611,7 +704,6 @@ main h2 {
 
 .app {
   width: 100%;
-  /* min-width: 900px; */
 }
 
 /* .app header {
@@ -652,7 +744,7 @@ main h2 {
   margin-right: 20px;
 } */
 
-.app .main-write  {
+/* .app .main-write  {
   max-width: 80%;
   margin: 20px auto;
   display: grid;
@@ -770,4 +862,4 @@ main {
   width: 30px;
   height: 30px;
   cursor: pointer;
-} 
+}  */

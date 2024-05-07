@@ -28,7 +28,7 @@ export const TextAreaComponent = () => {
         event.preventDefault();
         if(inputValue === "" || inputValue === undefined || wordCount < 4 || paragraphCount < 1)
         {
-            setError("Please, write a at least 100 words and 3 paragraphs.");
+            setError("Write a at least 100 words and 3 paragraphs.");
             return;
         }
         dispatch(storeMessage(inputValue.split(/\n\n/)));
@@ -55,18 +55,18 @@ export const TextAreaComponent = () => {
 
     return (
         <>
-            <div className="text-area">
+            <div className="text-area-wrapper">
                 <textarea
                     className="text-area-input"
                     placeholder="Write your essay.."
                     onChange={handleChange}
                     value={inputValue}></textarea>
             </div>
-            <div className="control-panel">
+            <div className="control-panel-wrapper">
                 <span>{error}</span>
                 <em>{wordCount} words / {paragraphCount} paragraphs</em>
                 <a onClick={goBack}>Go back</a>
-                <button className="button" onClick={handleClick}>Submit</button>
+                <button className="bg-black-1 color-white-1" onClick={handleClick}>Submit</button>
             </div>
         </>
     )
