@@ -5,7 +5,7 @@ export const InstructionsComponent = () => {
     const currentAssignment = useSelector((state) => state.data.currentAssignment);
     
     return (
-        <section className="instructions">
+        <section className="instructions-wrapper">
             <h2>Instructions</h2>
                 {currentAssignment && currentAssignment.assignment && 
                   currentAssignment.assignment.map((element, index) => (
@@ -13,7 +13,7 @@ export const InstructionsComponent = () => {
                     ? <p key={index}>{element}</p>
                     : (
                       <ul key={index}>
-                        {element.map((item, i) => <li key={i}>{item}</li>)}
+                        <p>{element.map((item, i) => <li key={i}>{item}</li>)}</p>
                       </ul>
                     )
                 ))
