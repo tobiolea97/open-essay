@@ -9,7 +9,7 @@ export const WritingHistoryComponent = () => {
     const writings = useSelector((state) => state.data.writings);
 
     return (
-        <div class="writing-history-wrapper">
+        <div className="writing-history-wrapper">
         { writings && writings.length > 0 &&
             <h2>Your writing history</h2>
         }
@@ -25,7 +25,7 @@ export const WritingHistoryComponent = () => {
                         <p>{writing.level}</p>
                         <p >{writing.writingArea}</p>
                         <p >{writing.name}</p>
-                        <button class="bg-black-1 color-white-1" onClick={() => navigate(`/review?assignment=${writing.id}`)}>View</button>
+                        <button className="bg-black-1 color-white-1" onClick={() => navigate(`/review?assignment=${writing.id}`)}>View</button>
                     </div>
                 )
             })}
