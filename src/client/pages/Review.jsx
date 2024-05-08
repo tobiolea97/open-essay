@@ -34,7 +34,10 @@ function Review() {
       { (data.status === "succeeded" || data.status === "idle") && data.currentReview && data.currentReview.feedback &&
         <>
           <div className="main-review">
-            <div className="instructions-review">
+            <a className='go-home' onClick={onClickGoBack}>
+              <img src="left-arrow.png" alt="Left arrow" />
+            </a>
+            <div className="instructions-wrapper">
               <h2>Assignment</h2>
               {
                   data.currentReview.assignment.map((element, index) => (
@@ -73,9 +76,6 @@ function Review() {
               </div>
             </div>
           </div>
-          <a className='go-home' onClick={onClickGoBack}>
-            <img src="left-arrow.png" alt="Left arrow" />
-          </a>
         </>
       }
     </>
