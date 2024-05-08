@@ -51,13 +51,16 @@ function Review() {
                   ))
                 }
             </div>
-            <div className="review-grid">
-              <GridHeaderComponent />
+            <div className="section-wrapper">
+              <h2>Your version</h2>
               <div className="paragraph">
                 {data.currentReview.feedback.original.map((message, index) => (
                   <p key={index} dangerouslySetInnerHTML={{ __html: message }} />
                 ))}
               </div>
+            </div>
+            <div className="section-wrapper">
+              <h2>How to improve it?</h2>
               <div className="feedback">
                 {data.currentReview.feedback.comments.map((comment, index) => (
                   <div className='note' key={index}>{comment}</div>
@@ -69,12 +72,13 @@ function Review() {
                   </div>
                 ))}
               </div>
+            </div>
+              <h2>GPT Version</h2>
               <div className="rewrite">
                 {data.currentReview.feedback.rewrite.map((message, index) => (
                   <p key={index}>{message}</p>
                 ))}
               </div>
-            </div>
           </div>
         </>
       }

@@ -123,6 +123,16 @@ select {
   margin-left: 2rem;
 }
 
+.section-wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.8rem;
+  margin: 5rem 0;
+  padding: 2rem 2rem 4rem 2rem;
+  border-radius: 1rem;
+  background-color: var(--grey-2);
+}
+
 /**********************************************/
 /*                   navbar                   */
 /**********************************************/
@@ -215,9 +225,13 @@ main > div {
   margin-top: 1rem;
 }
 
-main h2 {
+main h2, div h2 {
   font-size: 2.4rem;
-  margin: 2rem 0 3rem 0;
+  margin: 2rem 0 2rem 0;
+}
+
+main p, div p {
+  font-size: 1.6rem;
 }
 
 
@@ -495,18 +509,27 @@ main h2 {
   margin-top: 1.2rem;
 }
 
-/* .rephrase em {
-  color: #333;
-  font-weight: 800;
-  font-size: 14px;
+.paragraph h2 {
+  margin-bottom: .5rem;
 }
 
+.paragraph p, .feedback em, .feedback div {
+  font-size: 1.6rem;
+  margin-bottom: 2.8rem;
+}
 
+.feedback h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
 
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
+.note {
+  padding: 1.5rem 1.5rem;
+  border-radius: 1rem;
+  font-size: 1.6rem;
+  text-align: center;
+  margin-bottom: 1.5rem; 
+  background-color: #04deee;
 }
 
 .feedback .note:nth-child(odd) {
@@ -535,6 +558,20 @@ main h2 {
   background-color: #F266AB;
 }
 
+/* .rephrase em {
+  color: #333;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 
 .rephrase {
   padding: 15px 15px;
@@ -545,14 +582,7 @@ main h2 {
   background-color: #c0cecf;
 }
 
-.note {
-  padding: 15px 15px;
-  border-radius: 10px;
-  font-size: 16px;
-  text-align: center;
-  margin-bottom: 10px; 
-  background-color: #04deee;
-}
+
 
 
 .title {
