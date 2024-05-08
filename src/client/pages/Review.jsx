@@ -73,12 +73,14 @@ function Review() {
                 ))}
               </div>
             </div>
+            <div className="section-wrapper">
               <h2>GPT Version</h2>
               <div className="rewrite">
                 {data.currentReview.feedback.rewrite.map((message, index) => (
                   <p key={index}>{message}</p>
                 ))}
               </div>
+            </div>
           </div>
         </>
       }

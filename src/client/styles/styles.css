@@ -131,6 +131,7 @@ select {
   padding: 2rem 2rem 4rem 2rem;
   border-radius: 1rem;
   background-color: var(--grey-2);
+  max-width: 90rem;
 }
 
 /**********************************************/
@@ -505,6 +506,10 @@ main p, div p {
   height: 30px;
 }
 
+.main-review .section-wrapper {
+  margin-bottom: 0;
+}
+
 .main-review .instructions-wrapper {
   margin-top: 1.2rem;
 }
@@ -513,14 +518,14 @@ main p, div p {
   margin-bottom: .5rem;
 }
 
-.paragraph p, .feedback em, .feedback div {
+.paragraph p, .feedback em, .feedback div, .rewrite p {
   font-size: 1.6rem;
   margin-bottom: 2.8rem;
 }
 
 .feedback h3 {
   font-size: 1.8rem;
-  margin-bottom: 1rem;
+  margin: 3rem;
 }
 
 .note {
@@ -529,7 +534,7 @@ main p, div p {
   font-size: 1.6rem;
   text-align: center;
   margin-bottom: 1.5rem; 
-  background-color: #04deee;
+  background-color: var(--yellow);
 }
 
 .feedback .note:nth-child(odd) {
@@ -542,7 +547,13 @@ main p, div p {
   margin-bottom: 10px;
 }
 
-.note:nth-child(1), .note:nth-child(5) {
+.rephrase {
+  background-color: var(--white-1);
+  padding: 1.8rem;
+  border-radius: 1rem;
+}
+
+/* .note:nth-child(1), .note:nth-child(5) {
   background-color: #04deee;
 }
 
@@ -555,7 +566,7 @@ main p, div p {
 }
 
 .note:nth-child(4), .note:nth-child(8) {
-  background-color: #F266AB;
+  background-color: #F266AB; */
 }
 
 /* .rephrase em {
