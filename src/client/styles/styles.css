@@ -173,6 +173,7 @@ header .header-wrapper .logo {
 header .header-wrapper .logout {
   display: none;
   align-items: center;
+  cursor: pointer;
 }
 
 header .header-wrapper .logout-small-screens {
