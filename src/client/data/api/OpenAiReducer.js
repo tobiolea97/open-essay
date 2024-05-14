@@ -75,21 +75,7 @@ const reviewSlice = createSlice({
     }
 });
 
-function applyStylesToErrors(writingReview) {
-    let paragraphs = writingReview.original;
-    let misspellings = writingReview.misspellings;
-    // remove duplicates from misspellings
-    misspellings = misspellings.filter((v, i, a) => a.findIndex(t => (t.wrong === v.wrong)) === i);
-    let styledParagraphs = [];
-    paragraphs.forEach(element => {
-        misspellings.forEach(misspelling => {
-            element = element.replace(misspelling.wrong, `<wrong>${misspelling.wrong}</wrong> <right>${misspelling.correct}</right>`);
-        });
-        styledParagraphs.push(element);
-    });
-    writingReview.original = styledParagraphs;
-    return writingReview;
-}
+
 
 export const { storeMessage, setStatus } = reviewSlice.actions;
 export const selectReviewStatus = (state) => state.status;
