@@ -39,6 +39,7 @@ button {
   padding: .6rem 1.4rem;
   border: none;
   border-radius: .5rem;
+  cursor: pointer;
 }
 
 select {
@@ -445,6 +446,8 @@ main p, div p {
   text-align: center;
   color: var(--black-1);
   grid-area: goback;
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .control-panel-wrapper button {
@@ -499,6 +502,7 @@ main p, div p {
 .main-review .go-home {
   place-self: start;
   margin-top: 1.2rem;
+  cursor: pointer;
 }
 
 .main-review .go-home img {
@@ -703,21 +707,28 @@ main p, div p {
   color: black;
   margin-bottom: 20px;
 }
+*/
 
-.main-review wrong {
+.main-review div {
+  display: flex;
+}
+
+.wrong {
+  display: inline;
   text-decoration: line-through;
   font-weight: 900;
-  background-color: rgb(250, 110, 110);
+  background-color: #faa4a4;
   border-radius: 10px;
   padding: 0 5px;
 }
 
-.main-review right {
-  background-color: rgb(49, 212, 49);
+.right {
+  display: inline;
+  background-color: #82f082;
   font-weight: 900;
   border-radius: 10px;
   padding: 0 5px;
-} */
+} 
 
 
 /**********************************************/
