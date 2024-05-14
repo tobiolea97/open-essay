@@ -10,8 +10,8 @@ const initialState = {
 export const review = createAsyncThunk('/essay/review', async (params) => {
         let response;
         try {
-            response = await fetch('http://localhost:3000/review/test', {
-            //response = await fetch('http://localhost:3000/review/this/is/the/paid/version/bro', {
+            //response = await fetch('http://localhost:3000/review/test', {
+            response = await fetch('http://localhost:3000/review/openai', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
