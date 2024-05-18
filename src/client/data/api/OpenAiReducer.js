@@ -9,11 +9,15 @@ const initialState = {
 
 export const review = createAsyncThunk('/essay/review', async (params) => {
         let response;
+        const token = localStorage.getItem('token');
         try {
-            //response = await fetch('http://localhost:3000/review/test', {
-            response = await fetch('http://localhost:3000/review/openai', {
+            response = await fetch('http://localhost:3000/review/test', {
+            /* response = await fetch('http://localhost:3000/review/openai', { */
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
                 body: JSON.stringify({
                     "message": params.inputValue
                 })
@@ -27,17 +31,19 @@ export const review = createAsyncThunk('/essay/review', async (params) => {
         }
 
         let feedback = await response.json();
-        
+        debugger;
         let writing = {
             "writing": params.inputValue,
-            "email": params.email,
             "assignmentId": params.assignmentId,
             "feedback": feedback
         }
         try {
             await fetch('http://localhost:3000/data/saveWriting', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
                 body: JSON.stringify(writing)
             });
         } catch (error) {

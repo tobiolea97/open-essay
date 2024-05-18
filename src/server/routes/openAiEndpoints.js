@@ -1,5 +1,6 @@
 import OpenAI from "openai";
 import { createRequire } from 'module';
+import jwt from 'jsonwebtoken';
 import fs from "fs";
 const require = createRequire(import.meta.url);
 require('dotenv').config();
@@ -12,11 +13,22 @@ const openAiEndpoints = (app) => {
     });
 
     app.post("/review/test", async (req, res) => {
-        await new Promise((resolve) => setTimeout(resolve, 1000));
-        const { message } = req.body;
-        const file = fs.readFileSync('./open-ai-responses/output-1712327366690.txt', 'utf8');
-        const output = parseResponse(file, message);
-        res.json(output);
+      const authHeader = req.headers.authorization;
+      if (authHeader) {
+        const token = authHeader.split(' ')[1];
+        try {
+          const decoded = jwt.verify(token, process.env.JWT_SECRET);
+          await new Promise((resolve) => setTimeout(resolve, 1000));
+          const { message } = req.body;
+          const file = fs.readFileSync('./open-ai-responses/output-1712327366690.txt', 'utf8');
+          const output = parseResponse(file, message);
+          res.json(output);
+        } catch (err) {
+          res.json("Invalid token");
+        }
+      } else {
+        res.json("Error");
+      }
     });
 
     app.post("/review/openai", async (req, res) => {
