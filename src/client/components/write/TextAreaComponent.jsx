@@ -34,7 +34,6 @@ export const TextAreaComponent = () => {
         dispatch(storeMessage(inputValue.split(/\n\n/)));
         await dispatch(review({
             "inputValue": inputValue,
-            "email": "tobiolea97@gmail.com",
             "assignmentId": currentAssignment.id
         }));
         
