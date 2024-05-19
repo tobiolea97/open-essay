@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { getWriting } from '../../../server/controller/controller';
 
 const initialState = {
     levels: null,
@@ -82,10 +81,14 @@ export const saveWriting = createAsyncThunk('writing/save', async (params) => {
 
 export const getReview = createAsyncThunk('review/get', async(params) => {
     let response;
+    const token = localStorage.getItem('token');
     try {
         response = await fetch('http://localhost:3000/data/getWriting?assignment=' + params.assignmentId, {
             method: 'GET',
-            headers: { 'Content-Type': 'application/json' }
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
         });
     } catch (error) {
         throw new Error('Server error. Try again later.');
