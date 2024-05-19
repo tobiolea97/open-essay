@@ -47,10 +47,14 @@ export const getWritingAreas = createAsyncThunk('writingAreas/fetch', async () =
 
 export const getAssignment = createAsyncThunk('assignment/get', async (params) => {
     let response;
+    const token = localStorage.getItem('token');
     try {
             response = await fetch('http://localhost:3000/data/assignment?level=' + params.level + '&writingArea=' + params.writingArea, {
                 method: 'GET',
-                headers: { 'Content-Type': 'application/json' }
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
             });
         } catch (error) {
             throw new Error('Server error. Try again later.');
