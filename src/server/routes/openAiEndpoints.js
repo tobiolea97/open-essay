@@ -128,14 +128,12 @@ const openAiEndpoints = (app) => {
     app.get('/data/assignment', async (req, res) => {
       const { level, writingArea } = req.query;
       const authHeader = req.headers.authorization;
-      debugger;
       if (authHeader) {
         const token = authHeader.split(' ')[1];
         try {
             jwt.verify(token, process.env.JWT_SECRET);
             const decodedToken = jwt.decode(token);
             const email = decodedToken.email[0];
-            console.log(email);
             const user = await userSchema.findOne({email});
             const assignments = await assignmentSchema.find({level, writingArea});
             //return the first assignment that is not present in the user's writings
@@ -146,6 +144,32 @@ const openAiEndpoints = (app) => {
         }
       } 
     });
+
+    app.get('/data/getWriting', async (req, res) => {
+      debugger;
+      const { assignment } = req.query;
+      const authHeader = req.headers.authorization;
+      if (authHeader) {
+        const token = authHeader.split(' ')[1];
+        try {
+            jwt.verify(token, process.env.JWT_SECRET);
+            const decodedToken = jwt.decode(token);
+            const email = decodedToken.email[0];
+            const user = await userSchema.findOne({email});
+            const writing = user.writings.find(writing => writing.assignmentId === assignment);
+            
+            const assignmentDocument = await assignmentSchema.findOne({id: assignment});
+            
+            writing.assignment = assignmentDocument.assignment;
+    
+            res.status(200).json(writing);
+        }
+        catch (error) {
+            res.status(404).json({ message: error.message });
+        }
+      }
+  });
+
 }
 
 
