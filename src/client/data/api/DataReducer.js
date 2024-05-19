@@ -98,10 +98,14 @@ export const getReview = createAsyncThunk('review/get', async(params) => {
 
 export const getWritings = createAsyncThunk('writings/get', async(params) => {
     let response;
+    const token = localStorage.getItem('token');
     try {
         response = await fetch('http://localhost:3000/data/getWritings', {
             method: 'GET',
-            headers: { 'Content-Type': 'application/json' }
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
         });
     } catch (error) {
         throw new Error('Server error. Try again later.');
