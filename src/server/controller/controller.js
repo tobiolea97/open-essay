@@ -27,18 +27,18 @@ export const getWritingAreas = async (req, res) => {
     }
 };
 
-export const getAssignment = async (req, res) => {
-    const { level, writingArea } = req.query;
-    try {
-        const user = await userSchema.findOne({email: "tobiolea97@gmail.com"});
-        const assignments = await assignmentSchema.find({level, writingArea});
-        //return the first assignment that is not present in the user's writings
-        const assignment = assignments.find(assignment => !user.writings.some(writing => writing.assignmentId === assignment.id));
-        res.status(200).json(assignment);
-    } catch (error) {
-        res.status(404).json({ message: error.message });
-    }
-};
+// export const getAssignment = async (req, res) => {
+//     const { level, writingArea } = req.query;
+//     try {
+//         const user = await userSchema.findOne({email: "tobiolea97@gmail.com"});
+//         const assignments = await assignmentSchema.find({level, writingArea});
+//         //return the first assignment that is not present in the user's writings
+//         const assignment = assignments.find(assignment => !user.writings.some(writing => writing.assignmentId === assignment.id));
+//         res.status(200).json(assignment);
+//     } catch (error) {
+//         res.status(404).json({ message: error.message });
+//     }
+// };
 
 // export const saveWriting = async (req, res) => {
 //     const { writing, assignmentId, feedback  } = req.body;

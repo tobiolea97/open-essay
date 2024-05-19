@@ -6,8 +6,10 @@ import fs from "fs";
 const require = createRequire(import.meta.url);
 require('dotenv').config();
 import { UserSchema } from '../models/userModel.js';
+import { AssignmentSchema } from '../models/assignmentModel.js';
 
 const userSchema = mongoose.model('users', UserSchema);
+const assignmentSchema = mongoose.model('assignments', AssignmentSchema);
 
 const openAiEndpoints = (app) => {
 
@@ -105,7 +107,6 @@ const openAiEndpoints = (app) => {
               jwt.verify(token, process.env.JWT_SECRET);
               const decodedToken = jwt.decode(token);
               const email = decodedToken.email[0];
-              debugger;
               const user = await userSchema.findOne({email});
               // if writings property does not exist, create it
               if (!user.writings) {
@@ -122,7 +123,29 @@ const openAiEndpoints = (app) => {
           } catch (error) {
               res.status(404).json({ message: error.message });
           }
-      }});
+    }});
+
+    app.get('/data/assignment', async (req, res) => {
+      const { level, writingArea } = req.query;
+      const authHeader = req.headers.authorization;
+      debugger;
+      if (authHeader) {
+        const token = authHeader.split(' ')[1];
+        try {
+            jwt.verify(token, process.env.JWT_SECRET);
+            const decodedToken = jwt.decode(token);
+            const email = decodedToken.email[0];
+            console.log(email);
+            const user = await userSchema.findOne({email});
+            const assignments = await assignmentSchema.find({level, writingArea});
+            //return the first assignment that is not present in the user's writings
+            const assignment = assignments.find(assignment => !user.writings.some(writing => writing.assignmentId === assignment.id));
+            res.status(200).json(assignment);
+        } catch (error) {
+            res.status(404).json({ message: error.message });
+        }
+      } 
+    });
 }
 
 
