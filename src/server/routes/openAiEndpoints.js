@@ -1,9 +1,13 @@
+import mongoose from 'mongoose';
 import OpenAI from "openai";
 import { createRequire } from 'module';
 import jwt from 'jsonwebtoken';
 import fs from "fs";
 const require = createRequire(import.meta.url);
 require('dotenv').config();
+import { UserSchema } from '../models/userModel.js';
+
+const userSchema = mongoose.model('users', UserSchema);
 
 const openAiEndpoints = (app) => {
 
@@ -91,6 +95,34 @@ const openAiEndpoints = (app) => {
           res.status(500).json({ error: "Internal Server Error" });
       }
     });
+
+    app.post('/data/saveWriting', async (req, res) => {
+      const { writing, assignmentId, feedback  } = req.body;
+      const authHeader = req.headers.authorization;
+      if (authHeader) {
+          const token = authHeader.split(' ')[1];
+          try {
+              jwt.verify(token, process.env.JWT_SECRET);
+              const decodedToken = jwt.decode(token);
+              const email = decodedToken.email[0];
+              debugger;
+              const user = await userSchema.findOne({email});
+              // if writings property does not exist, create it
+              if (!user.writings) {
+                  user.writings = [];
+              }
+              user.writings.push({
+                      assignmentId: assignmentId,
+                      writing: writing,
+                      feedback: feedback
+                  });
+  
+              await user.save();
+              res.status(200).json(user);
+          } catch (error) {
+              res.status(404).json({ message: error.message });
+          }
+      }});
 }
 
 
