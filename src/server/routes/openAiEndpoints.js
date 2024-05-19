@@ -146,7 +146,6 @@ const openAiEndpoints = (app) => {
     });
 
     app.get('/data/getWriting', async (req, res) => {
-      debugger;
       const { assignment } = req.query;
       const authHeader = req.headers.authorization;
       if (authHeader) {
@@ -163,6 +162,31 @@ const openAiEndpoints = (app) => {
             writing.assignment = assignmentDocument.assignment;
     
             res.status(200).json(writing);
+        }
+        catch (error) {
+            res.status(404).json({ message: error.message });
+        }
+      }
+
+    });
+
+    app.get('/data/getWritings', async (req, res) => {
+      const authHeader = req.headers.authorization;
+      if (authHeader) {
+        const token = authHeader.split(' ')[1];
+        try {
+            jwt.verify(token, process.env.JWT_SECRET);
+            const decodedToken = jwt.decode(token);
+            const email = decodedToken.email[0];
+            const user = await userSchema.findOne({email});
+            const assignments = await assignmentSchema.find();
+            const assignmentIds = user.writings.map(writing => writing.assignmentId);
+            const response = [];
+            assignmentIds.forEach(assignmentId => {
+                const assignment = assignments.find(assignment => assignment.id === assignmentId);
+                response.push(assignment);
+            });
+            res.status(200).json(response);
         }
         catch (error) {
             res.status(404).json({ message: error.message });
