@@ -1,34 +1,10 @@
 [{
   "_id": {
-    "$oid": "6612fd209d5bfacb9dfeb893"
+    "$oid": "6613200d9d5bfacb9dfeb8a7"
   },
   "id": "1",
   "assignment": [
-    "Your principal has suggested a project in which groups of students spend three days on a survival exercise, living in a remote place where they have to organise their own shelter, food and heat. You have made the notes below",
-    [
-      "self-sufficiency",
-      "insight into different living conditions",
-      "teamwork"
-    ],
-    "Opinions expressed by students:",
-    [
-      "it could be dangerous",
-      "three days is too short to gain insight",
-      "participants would need considerable preparation"
-    ],
-    "Write an essay discussing two of the arguments in your notes. You should explain which of the arguments you think is more important and provide reasons to support your opinion."
-  ],
-  "level": "C1",
-  "writingArea": "ESSAY",
-  "name": "Survival Exercise"
-},
-{
-  "_id": {
-    "$oid": "66130c019d5bfacb9dfeb8a1"
-  },
-  "id": "2",
-  "assignment": [
-    "In your English class you have been talking about wildlife conservation. Now your English teacher has asked you to write an Essay",
+    "In your English class you have been talking about wildlife conservation. Now your English teacher has asked you to write an essay",
     "Write an essay using all the notes and give reasons for your point of view",
     "Not enough is being done to protect endangered animals. Do you agree?",
     [
@@ -39,5 +15,87 @@
   ],
   "level": "B2",
   "writingArea": "ESSAY",
-  "name": "Survival Exercise"
+  "name": "Wildlife conservation"
+},
+{
+  "_id": {
+    "$oid": "6613200d9d5bfacb9dfeb8a8"
+  },
+  "id": "2",
+  "assignment": [
+    "In your English class you have been talking about the benefits of regular exercise. Now your teacher has asked you to write an essay.",
+    "Write an essay using all the notes and give reasons for your point of view",
+    "Should people who are studying or working hard take regular exercise?",
+    [
+      "lifestyle",
+      "health benefits",
+      "... (your own idea)"
+    ]
+  ],
+  "level": "B2",
+  "writingArea": "ESSAY",
+  "name": "Should people do more exercise?"
+},
+{
+  "_id": {
+    "$oid": "6613200d9d5bfacb9dfeb8a9"
+  },
+  "id": "3",
+  "assignment": [
+    "In your English class you have been talking about jobs and salaries. Now your teacher has asked you to write an essay.",
+    "Write an essay using all the notes and give reasons for your point of view",
+    "Compared to people in other jobs, sportspeople are paid too much for what they do. Do you agree?",
+    [
+      "which jobs are important in society",
+      "why some sportspeople are paid a lot of money",
+      "... (your own idea)"
+    ]
+  ],
+  "level": "B2",
+  "writingArea": "ESSAY",
+  "name": "Are sportpeople paid too much?"
+},
+{
+  "_id": {
+    "$oid": "6613200d9d5bfacb9dfeb8aa"
+  },
+  "id": "4",
+  "assignment": [
+    "In your English class you have been talking about urban transport. Now your English teacher has asked you to write an Essay",
+    "Write an essay using all the notes and give reasons for your point of view",
+    "The only way to solve traffic problems in cities is to improve public transport. Do you agree?",
+    [
+      "problems with public transport",
+      "limiting the use of private cars",
+      "... (your own idea)"
+    ]
+  ],
+  "level": "B2",
+  "writingArea": "ESSAY",
+  "name": "How to solve traffic problems?"
+},
+{
+  "_id": {
+    "$oid": "664b32a020efc026fd4c9283"
+  },
+  "id": "5",
+  "assignment": [
+    "Your class has listened to a panel discussion about the reasons for learning English in the modern world",
+    "Reasons for learning English:",
+    [
+      "increased work opportunities",
+      "helpful for studies",
+      "useful for travelling"
+    ],
+    "Some opinions expressed in the discussion: ",
+    [
+      "Knowing English allows you to do business all over the world",
+      "Lots of academic books and articles are written in English",
+      "Wherever you go on holidya you can get by if you Speak English"
+    ],
+    "Write an essay discussing two of the reasons for learning English in the modern world. You should explain which reason is most important, giving reasons in support of your answer. You may, if you wish, make use of the opinions expressed in the discussion but you should use your own words as far as possible."
+  ],
+  "level": "C1",
+  "writingArea": "ESSAY",
+  "name": "How to solve traffic problems?"
 }]
