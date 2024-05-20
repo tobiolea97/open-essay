@@ -31,7 +31,6 @@ export const review = createAsyncThunk('/essay/review', async (params) => {
         }
 
         let feedback = await response.json();
-        debugger;
         let writing = {
             "writing": params.inputValue,
             "assignmentId": params.assignmentId,
