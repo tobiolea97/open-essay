@@ -93,6 +93,9 @@ export const getReview = createAsyncThunk('review/get', async(params) => {
     } catch (error) {
         throw new Error('Server error. Try again later.');
     }
+    if (!response.ok) {
+        throw new Error('The writing code does not exist.');
+    }
     return response.json();
 });
 

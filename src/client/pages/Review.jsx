@@ -4,11 +4,13 @@ import Spinner from '../components/SpinnerComponent';
 import LoadingReviewLayoutComponent from '../components/review/LoadingReviewLayoutComponent';
 import GridHeaderComponent from '../components/review/GridHeaderComponent';
 import { getReview } from '../data/api/DataReducer';
+import {useNavigate} from "react-router-dom";
 
 
 function Review() {
   const openai = useSelector((state) => state.OpenAi);
   const data = useSelector((state) => state.data);
+  const navigate = useNavigate();
 
   const queryParams = new URLSearchParams(location.search);
   const assignment = queryParams.get('assignment');
@@ -27,63 +29,76 @@ function Review() {
     }
   }, []);
 
+  const goBack = () => {
+    navigate("/home");
+  }
+
   return (
     <>
       { data.status === "loading" && <Spinner /> }
-      { data.status === "loading" && <LoadingReviewLayoutComponent /> }
-      { (data.status === "succeeded" || data.status === "idle") && data.currentReview && data.currentReview.feedback &&
+      {/* { data.status === "loading" && <LoadingReviewLayoutComponent /> } */}
+      
         <>
           <div className="main-review">
-            <a className='go-home' onClick={onClickGoBack}>
-              <img src="left-arrow.png" alt="Left arrow" />
-            </a>
-            <div className="instructions-wrapper">
-              <h2>Assignment</h2>
-              {
-                  data.currentReview.assignment.map((element, index) => (
-                      typeof element === 'string'
-                      ? <p key={index}>{element}</p>
-                      : (
-                        <ul key={index}>
-                          {element.map((item, i) => <li key={i}>{item}</li>)}
-                        </ul>
-                      )
-                  ))
-                }
+          { data.status === "failed" &&
+            <div className="error-message">
+              <p>The writing your are looking for does not exist.</p>
+              <a onClick={goBack}>Go back</a>
             </div>
-            <div className="section-wrapper">
-              <h2>Your version</h2>
-              <div className="paragraph">
-                {data.currentReview.feedback.original.map((message, index) => (
-                  <p key={index} dangerouslySetInnerHTML={{ __html: message }} />
-                ))}
-              </div>
-            </div>
-            <div className="section-wrapper">
-              <h2>How to improve it?</h2>
-              <div className="feedback">
-                {data.currentReview.feedback.comments.map((comment, index) => (
-                  <div className='note' key={index}>{comment}</div>
-                ))}
-                <h3>Some rephrases</h3>
-                {data.currentReview.feedback.rephrases.map((rephrase, index) => (
-                  <div className='rephrase' key={index}>
-                    <em>"{rephrase.unclear}"</em> could be rephrased to <em>"{rephrase.rephrased}</em>"
+          }
+          { (data.status === "succeeded" || data.status === "idle") && data.currentReview && data.currentReview.feedback &&
+            <>
+                <a className='go-home' onClick={onClickGoBack}>
+                  <img src="left-arrow.png" alt="Left arrow" />
+                </a>
+                <div className="instructions-wrapper">
+                  <h2>Assignment</h2>
+                  {
+                      data.currentReview.assignment.map((element, index) => (
+                          typeof element === 'string'
+                          ? <p key={index}>{element}</p>
+                          : (
+                            <ul key={index}>
+                              {element.map((item, i) => <li key={i}>{item}</li>)}
+                            </ul>
+                          )
+                      ))
+                    }
+                </div>
+                <div className="section-wrapper">
+                  <h2>Your version</h2>
+                  <div className="paragraph">
+                    {data.currentReview.feedback.original.map((message, index) => (
+                      <p key={index} dangerouslySetInnerHTML={{ __html: message }} />
+                    ))}
                   </div>
-                ))}
-              </div>
-            </div>
-            <div className="section-wrapper">
-              <h2>GPT Version</h2>
-              <div className="rewrite">
-                {data.currentReview.feedback.rewrite.map((message, index) => (
-                  <p key={index}>{message}</p>
-                ))}
-              </div>
-            </div>
+                </div>
+                <div className="section-wrapper">
+                  <h2>How to improve it?</h2>
+                  <div className="feedback">
+                    {data.currentReview.feedback.comments.map((comment, index) => (
+                      <div className='note' key={index}>{comment}</div>
+                    ))}
+                    <h3>Some rephrases</h3>
+                    {data.currentReview.feedback.rephrases.map((rephrase, index) => (
+                      <div className='rephrase' key={index}>
+                        <em>"{rephrase.unclear}"</em> could be rephrased to <em>"{rephrase.rephrased}</em>"
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="section-wrapper">
+                  <h2>GPT Version</h2>
+                  <div className="rewrite">
+                    {data.currentReview.feedback.rewrite.map((message, index) => (
+                      <p key={index}>{message}</p>
+                    ))}
+                  </div>
+                </div>
+              </>
+            }
           </div>
         </>
-      }
     </>
   );
 }
