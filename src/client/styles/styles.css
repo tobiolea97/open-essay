@@ -12,6 +12,7 @@
   --white-2: #FFF;
   --yellow: #f5ec77;
   --red: #df5748;
+  --light-blue: #9cdadf;
   --sm: 500px;
   --md: 600px;
   --lg: 800px;
@@ -788,7 +789,7 @@ main p, div p {
 }
 
 .error-message p {
-  font-size: 2.4rem;
+  font-size: 1.8rem;
   color: var(--black-2);
 }	
 

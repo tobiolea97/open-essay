@@ -6,6 +6,7 @@ import TextAreaComponent from "../components/write/TextAreaComponent";
 import { getAssignment } from "../data/api/DataReducer";
 import Spinner from "../components/SpinnerComponent";
 import {useNavigate} from "react-router-dom";
+import {storeAssignment} from "../data/api/DataReducer";
 
 function Write() {
   const dispatch = useDispatch();
@@ -14,6 +15,7 @@ function Write() {
   const currentAssignment = useSelector((state) => state.data.currentAssignment);
   
   useEffect(() => {
+    dispatch(storeAssignment(null));
     const queryParams = new URLSearchParams(location.search);
     const level = queryParams.get('level');
     const writingArea = queryParams.get('writingArea');
