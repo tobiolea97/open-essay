@@ -487,7 +487,6 @@ main p, div p {
 
 .loading-label {
   color: #fff; 
-  margin-top: 20px; 
   font-size: 20px; 
   text-align: center; 
 }
@@ -750,7 +749,7 @@ main p, div p {
   flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
-  padding: 0px 40px;
+  padding: 15px 40px;
   text-decoration: none;
   border-radius: 10px;
   border: 1px solid #555;
