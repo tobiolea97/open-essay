@@ -203,7 +203,6 @@ function applyStylesToErrors(writingReview) {
     return writingReview;
 }
 
-//export const { storeMessage, setStatus } = reviewSlice.actions;
-//export const selectReviewStatus = (state) => state.status;
+export const { storeAssignment } = dataSlice.actions;
 
 export default dataSlice.reducer;
