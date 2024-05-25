@@ -2,7 +2,7 @@
 Open writing is a helpful tool for those who are getting ready to take an international English exam such as Cambridge, IELTS, etc. It provides you with real world assignments for you to complete, and uses OpenAI API to generate feedback on your writing.
 
 
-## Architecture/Arquitectura
+## Architecture
 The app is formed by a React front end and a Express server, which stores data on MongoDB
 
 The **front end** incorporates
